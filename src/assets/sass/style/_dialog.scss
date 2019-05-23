@@ -1,0 +1,33 @@
+
+/******************************
+*		Dialog Overrrides     *
+*******************************/
+
+.modal.fade {
+	.modal-dialog {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		top: 50%;
+		@include translate(0, -50%);
+	}
+}
+
+.modal-content {
+	.overlay {
+		background-color: rgba(255,255,255,0.9);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		color: #555;
+		border-radius: 3px;
+		z-index: 100;
+		@include position(absolute, 0 0 0 0);
+		.l-text {
+			font-size: 24px;
+			margin-top: 15px;
+		}
+	}
+}

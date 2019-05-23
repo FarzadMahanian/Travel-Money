@@ -1,0 +1,44 @@
+							<ng-form name="securityQuestionFrom">
+								<section class="mt-20">
+									<legend  class="hidden-md hidden-lg">
+										<span>{{'form.securityQuestion.title'|translate}}</span>
+									</legend>
+
+									<bp-form-group data-field="securityQuestionFrom.securityQuestion"
+														data-form="securityQuestionFrom"
+														data-has-validation="true"
+														data-is-required="true" data-title="'global.securityQuestion'"
+														data-has-select="true"
+														data-css-class="'col-xs-12 col-sm-6'">
+
+										<ui-select ng-model="personalDetail.securityQuestion" theme="select2" ng-required="true"
+													  name="securityQuestion" search-enabled="false">
+											<ui-select-match placeholder="{{'global.securityQuestion'|translate}}" allow-clear="true">
+												<span ng-bind="$select.selected.question"></span>
+											</ui-select-match>
+											<ui-select-choices repeat="item.id as item in securityQuestions track by item.id">
+												<span ng-bind="item.question"></span>
+											</ui-select-choices>
+										</ui-select>
+									</bp-form-group>
+
+									<bp-form-group data-field="securityQuestionFrom.securityAnswer"
+														data-form="securityQuestionFrom"
+														data-css-class="'col-xs-12 col-sm-6'"
+														data-is-required="true" data-title="'global.securityAnswer'"
+														data-has-validation="true">
+										<input name="securityAnswer" type="text" ng-model="personalDetail.securityAnswer"
+												 placeholder="{{'global.securityAnswer'|translate}}"
+												 class="form-control" ng-required="true"/>
+									</bp-form-group>
+
+								</section>
+								<bp-wizard-actions step-form="securityQuestionFrom"
+														 disable-next="tabIndexSeed==0"
+														 hide-save-button="tabIndexSeed!=0"
+														 next-is-loading="personalDetailSaving"
+														 on-next-step="gotoWizardStep(tabIndexSeed)"
+														 data-form="newPersonalDetailForm" data-is-loading="newPersonalDetailForm.$isLoading"
+														 on-prev-step="gotoWizardStep(2)"/>
+
+							</ng-form>

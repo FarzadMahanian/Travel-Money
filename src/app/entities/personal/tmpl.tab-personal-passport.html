@@ -1,0 +1,42 @@
+							<ng-form name="passportInformationFrom">
+								<section class="mt-20">
+									<legend class="hidden-md hidden-lg">
+										<span>{{'form.passportInformation.title'|translate}}</span>
+									</legend>
+
+									<bp-form-group data-field="passportInformationFrom.passportNumber"
+														data-form="passportInformationFrom"
+														data-css-class="'col-xs-12 col-sm-6'"
+														data-is-required="true" data-title="'global.passportNumber'"
+														data-has-validation="true">
+										<input name="passportNumber" type="text" ng-model="personalDetail.passportNo"
+												 placeholder="{{'global.passportNumber'|translate}}" ng-required="true"
+												 class="form-control"/>
+									</bp-form-group>
+
+									<bp-form-group data-field="passportInformationFrom.passportExDate"
+														data-form="passportInformationFrom" data-is-required="true"
+														data-title="'global.passportExDate'" data-css-class="'col-lg-6'"
+														data-has-validation="true">
+										<input name="passportExDate" type="text"
+												 vestadp="{{vestadpOptions()}}" ng-model="personalDetail.passportExpirationDate"
+												 placeholder="{{'global.passportExDate'|translate}}"
+												 class="form-control white-readonly" ng-required="true"
+												 ng-readonly="true">
+									</bp-form-group>
+
+									<bp-form-group data-field="passportInformationFrom.scan" data-form="passportInformationFrom"
+														data-css-class="'col-xs-12 col-lg-6'"
+														data-is-required="true" data-title="'global.passportScan'"
+														data-has-validation="true">
+										<bp-file-upload ng-model="personalDetail.passportScan" name="scan" data-fu-required="true"
+															 fu-accept-mime="image/*"></bp-file-upload>
+									</bp-form-group>
+
+								</section>
+								<bp-wizard-actions step-form="passportInformationFrom" on-next-step="gotoWizardStep(2)"
+														 hide-save-button="true"
+														 data-form="newPersonalDetailForm" data-is-loading="newPersonalDetailForm.$isLoading"
+														 on-prev-step="gotoWizardStep(0)"/>
+
+							</ng-form>

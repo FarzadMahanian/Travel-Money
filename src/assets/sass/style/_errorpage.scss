@@ -1,0 +1,27 @@
+.container-error {
+	position: relative;
+	.box-404 {
+		margin-top: 100px;
+		text-align: center;
+		span {
+			display: inline-block;
+		}
+		.sign {
+			margin-bottom: 50px;
+			font-size: 100px;
+		}
+		.title span {
+			font-weight: bold;
+			font-size: 70px;
+			padding: 10px 100px;
+			border: 1px solid darken(#ffffff, 5%);
+			background-color: lighten($gray, 50%);
+			width: auto;
+			margin-bottom: 70px;
+			@include border-radius(100px);
+		}
+		.message span {
+			font-size: 30px;
+		}
+	}
+}

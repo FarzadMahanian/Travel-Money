@@ -1,0 +1,29 @@
+<div class="modal-header text-center">
+	<h3 class="modal-title" id="modal-title">{{'card.order.detail'|translate}}</h3>
+</div>
+<div class="modal-body modal-list-content">
+	<div class="row clearfix">
+		<div class="col-xs-12">
+			<div style="overflow-y: auto; height: 35em" class="p-20">
+				<section ng-repeat="group in vm.fieldList">
+					<legend class="m-0">
+						<span>{{::group.grpTitle}}</span>
+					</legend>
+					<ul class="personal-details-preview mt-20 mb-20">
+						<li class="list-item" ng-repeat="item in ::group.items">
+							<div class="list-title">{{::item.key|translate}}</div>
+							<div class="list-text">
+								<span ng-if="item.type!='image'" ng-class="item.class">{{::item.value||"-"}}</span>
+								<img ng-if="item.type=='image' && item.value" style="width: 100%" ng-src="{{ item.value }}" alt="{{::item.key|translate}}">
+							</div>
+						</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+			<button class="btn btn-default" type="button" ng-click="$dismiss()">{{'global.messages.close'|translate}}</button>
+	</div>
+</div>
+

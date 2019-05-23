@@ -1,0 +1,39 @@
+// Helper Functions
+.block {
+	display: block;
+}
+
+.light-text {
+	font-weight: 300 !important;
+}
+
+.semibold-text {
+	font-weight: 500 !important;
+}
+
+.line-head {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+/*
+ * padding and margin helpers
+**/
+$dirs: (top,right,left,bottom);
+$sizes: (0,5,10,15,20,30,40,50,75,100);
+@each $size in $sizes {
+	.p-#{$size} {
+		padding: $size+px !important;
+	}
+	.m-#{$size} {
+		margin: $size+px !important;
+	}
+	@each $dir in $dirs {
+		.p#{str-slice($dir,1,1)}-#{$size} {
+			padding-#{$dir}: $size+px !important;
+		}
+		.m#{str-slice($dir,1,1)}-#{$size} {
+			margin-#{$dir}: $size+px !important;
+		}
+	}
+}

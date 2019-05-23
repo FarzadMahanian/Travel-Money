@@ -1,0 +1,22 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">{{'card.delivery.deliverCard'|translate}}</h3>
+</div>
+<div class="modal-body modal-list-content">
+	<form name="deliverCardForm" ng-submit="vm.deliverCard()" novalidate>
+		<section class="mt-20">
+			<bp-form-group data-field="deliverCardForm.pan"
+								data-form="deliverCardForm"
+								data-title="'card.delivery.comment'" data-css-class="'col-lg-12'">
+				<textarea ng-model="vm.delivery.reason" class="form-control"></textarea>
+			</bp-form-group>
+		</section>
+		<div class="modal-footer">
+			<div class="col-xs-6">
+					<button class="btn btn-default btn-block" type="button" ng-click="$dismiss()">{{'global.messages.close'|translate}}</button>
+			</div>
+			<div class="col-xs-6">
+					<bp-loading-button is-loading="vm.isLoading" class="btn btn-primary btn-block" type="submit" title="'card.delivery.deliver'|translate"></bp-loading-button>
+			</div>
+		</div>
+	</form>
+</div>

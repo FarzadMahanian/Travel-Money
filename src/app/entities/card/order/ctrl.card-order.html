@@ -1,0 +1,48 @@
+<bp-page-title title="'card.order.title'"
+					icon-class="fa fa-id-card"
+					description="'card.order.add'"
+					pages="[{title:'card.order.title', sref:'.'}]"></bp-page-title>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+					<bp-wizard-tabs active-tab-index="activeTabIndex" items="wizardItems"></bp-wizard-tabs>
+					<div class="tab-pages">
+
+						<form class="form-horizontal" name="newPersonalDetailForm" data-ng-submit="saveForm()" novalidate>
+							<section class="tab-page bp-animate" ng-show="activeTabIndex==0 && !hasPersonalDetail">
+								<div ng-include="'app/entities/personal/tmpl.tab-personal-general.html'"></div>
+							</section>
+							<section class="tab-page bp-animate" ng-show="activeTabIndex==1 && !hasPersonalDetail">
+								<div ng-include="'app/entities/personal/tmpl.tab-personal-passport.html'"></div>
+							</section>
+							<section class="tab-page bp-animate" ng-show="activeTabIndex==2 && !hasPersonalDetail">
+								<div ng-include="'app/entities/personal/tmpl.tab-personal-address.html'"></div>
+							</section>
+							<section class="tab-page bp-animate" ng-show="activeTabIndex==3 && !hasPersonalDetail">
+								<div ng-include="'app/entities/personal/tmpl.tab-personal-sequrity-question.html'"></div>
+							</section>
+						</form>
+
+						<form class="form-horizontal" name="newCardOrderForm" data-ng-submit="saveForm()" novalidate>
+							<section class="tab-page bp-animate" ng-show="activeTabIndex==(0+tabIndexSeed) && hasPersonalDetail">
+								<div ng-include="'app/entities/card/order/tmpl.card-order-personal-detail.html'"></div>
+							</section>
+							<section class="tab-page bp-animate"  ng-show="(activeTabIndex==(1+tabIndexSeed) && hasPersonalDetail) || (activeTabIndex==(0+tabIndexSeed) && !hasPersonalDetail)">
+								<div ng-include="'app/entities/card/order/tmpl.card-order-delivery-condition.html'"></div>
+							</section>
+							<section class="tab-page bp-animate"  ng-show="(activeTabIndex==(2+tabIndexSeed) && hasPersonalDetail) || (activeTabIndex==(1+tabIndexSeed) && !hasPersonalDetail)">
+								<div ng-include="'app/entities/card/order/tmpl.card-order-confirm-data.html'"></div>
+							</section>
+							<section class="tab-page bp-animate"  ng-show="(activeTabIndex==(3+tabIndexSeed) && hasPersonalDetail) || (activeTabIndex==(2+tabIndexSeed) && !hasPersonalDetail)">
+								<div ng-include="lastStepTemplateUrl"></div>
+							</section>
+						</form>
+
+					</div>
+				<!--<div bp-form-draft="card" draft-form-name="CardOrder"></div>-->
+			</div>
+		</div>
+	</div>
+</div>

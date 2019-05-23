@@ -1,0 +1,34 @@
+<bp-page-title title="'exchange.title'"
+               description="'exchange.description'"
+               icon-class="fa fa-exchange"
+               pages="[{title:'exchange.title', sref:'.'}]"></bp-page-title>
+
+<div class="card">
+    <div class="card-body">
+
+        <bp-toolbar>
+            <bp-toolbar-button data-name="global.entity.create" data-icon="fa fa-history" data-no-sref="true"
+										 bp-role-permission="[TM_RATE_ADD]"
+                               data-click="vm.updateExchange()"></bp-toolbar-button>
+            <bp-toolbar-button data-name="global.entity.update" data-icon="fa fa-line-chart" data-no-sref="true"
+                               data-click="vm.showChart()"></bp-toolbar-button>
+        </bp-toolbar>
+
+        <bp-overlay ng-show="vm.tableParams.settings().$loading"></bp-overlay>
+        <table ng-table="vm.tableParams"
+               class="table table-striped table-bordered table-hover table-border-around text-center"
+               template-pagination="app/base/ng-table-pagination.html">
+
+            <tr ng-repeat="row in $data|filter:{active:true}">
+                <td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+                <td data-title="'exchange.source'|translate" sortable="'pan'">{{row.source.title}} ({{row.source.symbol}})</td>
+                <td data-title="'exchange.destination'|translate" sortable="'dest'">{{row.dest.title}} ({{row.dest.symbol}})</td>
+                <td data-title="'exchange.rate'|translate" sortable="'rate'">{{row.rate}}</td>
+                <td data-title="'grid.date'|translate" sortable="'creationDate'">
+                    {{row.creationDate|date:"yyyy-MM-dd hh:mm a"}}
+                </td>
+            </tr>
+        </table>
+        <div class="clearfix">&nbsp;</div>
+    </div>
+</div>

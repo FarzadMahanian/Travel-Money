@@ -1,0 +1,136 @@
+.wizard-tabs-container {
+  margin: 0 -20px;
+  .wizard-tabs {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    .wizard-tab {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      vertical-align: top;
+      .tab-border {
+        position: relative;
+        z-index: 0;
+        &:after,
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 25px;
+          width: 50%;
+          height: 7px;
+          background-color: #cccccc;
+			 @include breakpoint(0 $screen-sm) {
+				 top: 20px;
+				 height: 6px;
+			 }
+        }
+        &:before {
+          left: 0;
+          right: auto;
+        }
+        &:after {
+          left: auto;
+          right: 0;
+        }
+      }
+      .tab-index {
+        position: relative;
+        z-index: 100;
+        color: #fff;
+        padding: 12px 20px;
+        font-size: 21px;
+        font-weight: bold;
+        display: inline-block;
+        background-color: #cccccc;
+        @include border-radius(50%);
+		  @include breakpoint(0 $screen-sm) {
+        		padding: 8px 16px;
+		  }
+      }
+      .tab-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #cccccc;
+        padding: 10px 7px;
+      }
+      &.active {
+        .tab-index,
+        .tab-border:before {
+          background-color: $primary-color;
+        }
+        .tab-title {
+          color: $primary-color;
+        }
+      }
+      &.passed {
+        .tab-index,
+        .tab-border:before,
+        .tab-border:after {
+          background-color: $primary-color;
+        }
+        .tab-title {
+          color: $primary-color;
+        }
+      }
+      &:first-child {
+        .tab-border:before {
+          background-color: transparent !important;
+        }
+      }
+      &:last-child {
+        .tab-border:after {
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    &.wizard-tabs-2 {
+      .wizard-tab {
+        width: 50%;
+      }
+    }
+    &.wizard-tabs-3 {
+      .wizard-tab {
+        width: 33%;
+      }
+    }
+    &.wizard-tabs-4 {
+      .wizard-tab {
+        width: 25%;
+      }
+    }
+    &.wizard-tabs-5 {
+      .wizard-tab {
+        width: 20%;
+      }
+    }
+    &.wizard-tabs-6 {
+      .wizard-tab {
+        width: 16%;
+      }
+    }
+    &.wizard-tabs-7 {
+      .wizard-tab {
+        width: 14%;
+      }
+    }
+    &.wizard-tabs-8 {
+      .wizard-tab {
+        width: 12.5%;
+      }
+    }
+    &.wizard-tabs-9 {
+      .wizard-tab {
+        width: 11%;
+      }
+    }
+    &.wizard-tabs-10 {
+      .wizard-tab {
+        width: 10%;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<div ng-form="orderInfoForm" novalidate>
+	<section class="pl-30">
+		<legend class="mt-20">
+			<span>{{'card.groupOrder.orderInfo'|translate}}</span>
+		</legend>
+
+		<bp-form-group data-field="orderInfoForm.title"
+							data-form="orderInfoForm" data-is-required="true"
+							data-title="'card.groupOrder.orderTitle'" data-css-class="'col-lg-6'"
+							data-has-validation="true">
+			<input name="name" type="text" ng-model="vm.order.name"
+						placeholder="{{::'card.groupOrder.orderTitle'|translate}}"
+						class="form-control" ng-required="true">
+		</bp-form-group>
+
+		<legend class="mt-20">
+			<span>{{'card.order.deliveryCondition'|translate}}</span>
+		</legend>
+		<bp-form-group data-field="orderInfoForm.arrivalDate"
+							data-form="orderInfoForm" data-is-required="true"
+							custom-validations="{biggerThanTodayValidationMsg:'global.messages.biggerThanTodayValidationMsg'}"
+							data-title="'card.order.arrivalDate'" data-css-class="'col-lg-6'"
+							data-has-validation="true">
+			<input name="arrivalDate" type="text" ng-model="vm.order.arrivalDate"
+						vestadp="{{::vestadpOptions()}}"
+						bp-compare-to="vm.today"
+						placeholder="{{::'card.order.arrivalDate'|translate}}"
+						compare-options="{type:'date', op:'gt', offset: 0, validationMsg: 'biggerThanTodayValidationMsg'}"
+						class="form-control white-readonly" ng-required="true"
+						ng-readonly="true">
+		</bp-form-group>
+
+		<bp-form-group data-field="orderInfoForm.city"
+							data-form="orderInfoForm"
+							data-has-validation="true" data-css-class="'col-lg-6'"
+							data-is-required="true" data-title="'card.order.enteranceCity'"
+							data-has-select="true">
+
+			<ui-select ng-model="vm.order.cityId" theme="select2" ng-required="true" name="city">
+				<ui-select-match placeholder="{{'global.city'|translate}}"	allow-clear="true">
+					<span ng-bind="$select.selected.name"></span>
+				</ui-select-match>
+				<ui-select-choices repeat="item.id as item in (vm.cities) track by item.id">
+					<span ng-bind="item.name"></span>
+				</ui-select-choices>
+			</ui-select>
+		</bp-form-group>
+
+		<bp-form-group data-field="orderInfoForm.deliveryPlace"
+							data-form="orderInfoForm"
+							data-has-validation="true" data-css-class="'col-lg-6'"
+							data-is-required="true" data-title="'card.order.deliveryPlace'"
+							data-has-select="true">
+
+			<ui-select ng-model="vm.order.deliveryPlaceId" theme="select2" ng-required="true"
+						  ng-disabled="vm.deliveryPlaces.length<1"
+						  name="deliveryPlace" search-enabled="false">
+				<ui-select-match placeholder="{{::'card.order.deliveryPlace'|translate}}" allow-clear="true">
+					<span ng-bind="$select.selected.name"></span>
+				</ui-select-match>
+				<ui-select-choices repeat="item.id as item in vm.deliveryPlaces track by item.id" group-by="'parentName'">
+					<span ng-bind="item.name"></span>
+				</ui-select-choices>
+			</ui-select>
+			<i class="fa fa-spinner fa-pulse fa-fw fa-select2-spinner" ng-if="vm.order.cityId && vm.deliveryPlaces.length<1"></i>
+		</bp-form-group>
+
+	</section>
+	<bp-wizard-actions step-form="orderInfoForm"
+	hide-save-button="true" data-form="groupCardOrderForm" data-is-loading="groupCardOrderForm.$isLoading"
+	data-next-is-loading="groupCardOrderForm.$isLoading"
+	disable-prev="true" on-next-step="vm.saveOrderInfo()"/>
+</div>

@@ -1,0 +1,49 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">{{'card.groupOrder.passengerListTitle'|translate}}</h3>
+</div>
+<div class="modal-body">
+	<div class="modal-body">
+		<div class="row mt-10">
+			<div class="col-md-6">
+				<dl class="dl-horizontal dl-padding">
+					<dt>{{'global.title'|translate}}:</dt>
+					<dd>{{vm.order.name}}</dd>
+
+					<dt>{{'global.arrivalDate'|translate}}:</dt>
+					<dd>{{vm.order.arrivalDate|date:'yyyy-MM-dd'}}</dd>
+
+				</dl>
+			</div>
+			<div class="col-md-6">
+				<dl class="dl-horizontal dl-padding">
+					<dt>{{'card.order.enteranceCity'|translate}}:</dt>
+					<dd>{{vm.order.cityId}}</dd>
+
+					<dt>{{'card.order.deliveryPlace'|translate}}:</dt>
+					<dd>{{vm.order.deliveryPlaceName}}</dd>
+				</dl>
+			</div>
+		</div>
+		<div class="mt-10">
+			<table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover table-border-around text-center mb-20" template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'global.fullName'|translate" sortable="'fullName'">{{row.name}} {{row.family}}</td>
+					<td data-title="'global.birthDate'|translate" sortable="'birthDate'">{{row.birthDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'global.passportNumber'|translate" sortable="'passportNumber'">{{row.passportNo}}</td>
+					<td data-title="'global.passportExDate'|translate" sortable="'passportExDate'">{{row.passportExp|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'global.gender'|translate" sortable="'gender'">{{row.gender}}</td>
+					<td data-title="'grid.status'|translate" sortable="'status'">
+						<status-label inner-text="'card.order.status.'+(row.cardOrder?row.cardOrder.status:'PROCESSING')|translate" rules="{'label-warning':constants.enums.orderStatus.UNPAID, 'label-info':constants.enums.orderStatus.PAID, 'label-success':constants.enums.orderStatus.ISSUED, 'label-danger':constants.enums.orderStatus.REJECTED, 'label-default':'PROCESSING'}" value="row.cardOrder?row.cardOrder.status:'PROCESSING'"></status-label>
+				</tr>
+
+			</table>
+
+		</div>
+	</div>
+
+	<div class="modal-footer">
+		<button class="btn btn-default" type="button" ng-click="$dismiss()">{{'global.messages.close'|translate}}</button>
+	</div>
+</div>

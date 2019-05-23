@@ -1,0 +1,35 @@
+<div ng-form="passengerInfoFrom" novalidate ng-controller="TabCardGroupOrderPassengersInfoController as cvm">
+
+	<section class="pr-20 pl-20">
+		<legend class="mt-20">
+			<span>{{'card.groupOrder.passengers'|translate}}</span>
+		</legend>
+
+		<bp-toolbar>
+			<bp-toolbar-button data-name="global.entity.create" data-icon="fa fa-plus" data-no-sref="true" data-click="cvm.insertPassenger(vm.order.id)"></bp-toolbar-button>
+			<bp-toolbar-button data-name="global.entity.edit" data-icon="fa fa-edit" data-no-sref="true" data-disabled="!cvm.tableParams.selectedRow" data-click="cvm.updatePassenger(cvm.tableParams.selectedRow)"></bp-toolbar-button>
+			<bp-toolbar-button data-name="global.entity.delete" data-icon="fa fa-trash-o" data-no-sref="true" data-disabled="!cvm.tableParams.selectedRow" data-click="cvm.deletePassenger(cvm.tableParams.selectedRow)"></bp-toolbar-button>
+		</bp-toolbar>
+
+		<bp-overlay ng-show="cvm.tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="cvm.tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id"  ng-dblclick="cvm.showDetail(row)" ng-click="cvm.selectRow(row)" ng-class="{primary: cvm.tableParams.selectedRow == row}">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'global.fullName'|translate" sortable="'title'" >{{row.name}} {{row.family}}</td>
+					<td data-title="'global.email'|translate" sortable="'title'" >{{row.email}}</td>
+					<td data-title="'global.passportNumber'|translate" sortable="'code'" >{{row.passportNo}}</td>
+					<td data-title="'global.passportExDate'|translate" sortable="'deliveryPlaceName'">{{row.passportExp|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'global.birthDate'|translate" sortable="'passengersCount'" >{{row.birthDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'global.gender'|translate" sortable="'creationDate'">{{row.gender}}</td>
+				</tr>
+
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</section>
+
+	<bp-wizard-actions step-form="passengerInfoFrom"
+	hide-save-button="true" data-form="groupCardOrderForm" data-is-loading="groupCardOrderForm.$isLoading"
+	on-prev-step="vm.gotoWizardStep(0)" on-next-step="vm.getPassengersForConfirm()"/>
+</div>

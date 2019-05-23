@@ -1,0 +1,103 @@
+<bp-page-title title="'place.title'"
+					description="isEdit ? 'place.edit' : 'place.add'"
+					pages="[{title:'place.title', sref:'.'}]"></bp-page-title>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<form class="form-horizontal" name="newDeliveryPlaceForm" data-ng-submit="saveForm()" novalidate>
+					<a ng-click="check()">CHECK</a>
+					<section class="mt-20">
+						<legend>
+							<span>{{'place.title'|translate}}</span>
+						</legend>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.city"
+											data-form="newDeliveryPlaceForm"
+											data-has-validation="true"
+											data-is-required="true" data-title="'global.city'"
+											data-has-select="true"
+											data-css-class="'col-xs-12 col-sm-6'">
+
+							<ui-select ng-model="place.city" theme="select2" ng-required="true"  name="title" search-enabled="false">
+								<ui-select-match placeholder="{{'global.city'|translate}}" allow-clear="true">
+									<span ng-bind="$select.selected.name"></span>
+								</ui-select-match>
+								<ui-select-choices repeat="item.id as item in cities track by item.id">
+									<span ng-bind="item.name"></span>
+								</ui-select-choices>
+							</ui-select>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.bankName"
+											data-form="newDeliveryPlaceForm"
+											data-has-validation="true"
+											data-is-required="true" data-title="'global.bankName'"
+											data-has-select="true"
+											data-css-class="'col-xs-12 col-sm-6'">
+
+							<ui-select ng-model="place.bankName" theme="select2" ng-required="true" name="title" search-enabled="false">
+								<ui-select-match placeholder="{{'global.bankName'|translate}}" allow-clear="true">
+									<span ng-bind="$select.selected.name"></span>
+								</ui-select-match>
+								<ui-select-choices repeat="item.id as item in banks track by item.id">
+									<span ng-bind="item.name"></span>
+								</ui-select-choices>
+							</ui-select>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.branch" ng-if="place.bankName == 0"
+											data-form="newDeliveryPlaceForm"
+											data-css-class="'col-xs-12 col-sm-6'"
+											data-is-required="true" data-title="'global.branch'"
+											data-has-validation="true">
+							<input name="branch" type="text" ng-model="place.branch"
+									 placeholder="{{'global.branch'|translate}}"
+									 class="form-control" ng-required="true"/>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.address" data-form="newDeliveryPlaceForm" ng-if="place.bankName == 0"
+											data-title="'global.address'" data-css-class="'col-xs-12 col-sm-6'"
+											data-has-validation="true" data-is-required="true">
+										<textarea class="form-control" rows="3" ng-model="place.address"
+													 ng-required="true" name="address"
+													 placeholder="{{'global.address'|translate}}"></textarea>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.place" data-form="newDeliveryPlaceForm" ng-if="place.bankName == 1"
+											data-title="'global.place'" data-css-class="'col-xs-12 col-sm-6'"
+											data-has-validation="true" data-is-required="true">
+										<textarea class="form-control" rows="3" ng-model="place.place"
+													 ng-required="true" name="place"
+													 placeholder="{{'global.place'|translate}}"></textarea>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.contactName"
+											data-form="newDeliveryPlaceForm"
+											data-css-class="'col-xs-12 col-sm-6'"
+											data-is-required="true" data-title="'global.contactName'"
+											data-has-validation="true">
+							<input name="contactName" type="text" ng-model="place.contactName"
+									 placeholder="{{'global.contactName'|translate}}"
+									 class="form-control" ng-required="true"/>
+						</bp-form-group>
+
+						<bp-form-group data-field="newDeliveryPlaceForm.contactPhoneNumber"
+											data-form="newDeliveryPlaceForm"
+											data-css-class="'col-xs-12 col-sm-6'"
+											data-is-required="true" data-title="'global.contactPhoneNumber'"
+											data-has-validation="true">
+							<input name="contactPhoneNumber" type="text" ng-model="place.contactPhoneNumber"
+									 bp-auto-numeric="{aSep:'', dGroup:10, vMin: '0', vMax: '99999999999999999', lZero: 'keep'}"
+									 placeholder="{{'global.contactPhoneNumber'|translate}}"
+									 class="form-control" ng-required="true"/>
+						</bp-form-group>
+
+					</section>
+				</form>
+				<div bp-form-draft="place" draft-form-name="DeliveryPlace"></div>
+			</div>
+		</div>
+	</div>
+</div>

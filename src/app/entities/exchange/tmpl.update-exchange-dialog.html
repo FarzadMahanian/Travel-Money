@@ -1,0 +1,48 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{'exchange.update'|translate}}</h3>
+</div>
+<div class="modal-body modal-list-content">
+    <form name="updateExchangeCurrencyForm" data-ng-submit="saveForm()" novalidate>
+        <div class="pt-20 pb-20 clearfix currency-container">
+            <div class="col-xs-12">
+                <div class="row" ng-repeat="currency in ::exchangeRates | orderBy: 'active'"
+                     ng-class="{'currency-inactive':!currency.active}">
+                    <div class="col-xs-4 col-sm-3">
+                        <h5 class="m-0 mt-10">1 {{currency.source.name}} is</h5>
+                    </div>
+                    <bp-form-group data-field="updateExchangeCurrencyForm.currency"
+                                   data-form="updateExchangeCurrencyForm"
+                                   data-css-class="'col-xs-12 p-0'" data-title="''" class="col-xs-4 col-sm-5">
+                        <input name="currency" type="text" ng-model="currency.rate"
+                               class="form-control left-only english-only"/>
+                    </bp-form-group>
+                    <div class="col-xs-2 text-left p-0">
+                        <h5 class="m-0 mt-10"> {{currency.dest.symbol}} </h5>
+                    </div>
+                    <bp-form-group data-field="updateExchangeCurrencyForm.active" data-form="updateExchangeCurrencyForm"
+                                   data-css-class="'col-xs-12 p-0'" data-title="''" class="col-xs-2 m-0 mt-10 p-0">
+                        <div class="animated-checkbox col-md-12 p-0">
+                            <label>
+                                <input type="checkbox" name="active" ng-model="currency.active">
+                                <span class="label-text">{{'global.entity.states.active'|translate}}</span>
+                            </label>
+                        </div>
+                    </bp-form-group>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <div class="col-xs-6 col-sm-3 col-sm-offset-6">
+                <bp-loading-button is-loading="isLoading" class="btn btn-primary btn-block" type="submit"
+                                   title="'global.save'|translate"></bp-loading-button>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <button class="btn btn-default btn-block" type="button" ng-click="$dismiss()">
+                    {{'global.messages.close'|translate}}
+                </button>
+
+            </div>
+        </div>
+    </form>
+</div>

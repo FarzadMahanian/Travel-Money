@@ -1,0 +1,40 @@
+<bp-page-title title="'card.groupOrder.list.title'"
+					description="'card.groupOrder.list.description'"
+					icon-class="fa fa-th-list"
+			   	pages="[{title:'card.groupOrder.list.title', sref:'.'}]"></bp-page-title>
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="vm.filterFieldMetadata" filter="vm.filter" on-search="vm.searchFilter(vm.filter)"></bp-filter-form>
+
+		<bp-toolbar>
+			<bp-toolbar-button data-name="card.groupOrder.create" data-icon="fa fa-plus" bp-role-permission="[TM_ORDER_GROUP_ADD]" data-sref="app.card.groupOrder"></bp-toolbar-button>
+			<bp-toolbar-button data-name="global.entity.edit" data-icon="fa fa-edit" data-no-sref="true"  bp-role-permission="[TM_ORDER_GROUP_EDIT]" data-disabled="!vm.tableParams.selectedRow || vm.tableParams.selectedRow.status==constants.enums.groupOrderStatus.FINALIZED"  data-click="vm.editGroupOrder(vm.tableParams.selectedRow)"> </bp-toolbar-button>
+			<bp-toolbar-button data-name="global.entity.delete" data-icon="fa fa-trash-o" data-no-sref="true"
+			 bp-role-permission="[TM_ORDER_GROUP_DELETE_MINE]"
+			data-disabled="!vm.tableParams.selectedRow || vm.tableParams.selectedRow.status==constants.enums.groupOrderStatus.FINALIZED" data-click="vm.deleteGroupOrder(vm.tableParams.selectedRow)"></bp-toolbar-button>
+			<bp-toolbar-button data-name="global.entity.preview" data-icon="fa fa-eye" data-no-sref="true"
+			 bp-role-permission="[TM_ORDER_GROUP_DETAILS]" data-disabled="!vm.tableParams.selectedRow"
+			 data-click="vm.showPassengersDetail(vm.tableParams.selectedRow)"></bp-toolbar-button>
+		</bp-toolbar>
+
+		<bp-overlay ng-show="vm.tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id"  ng-dblclick="vm.showDetail(row)" ng-click="vm.selectRow(row)" ng-class="{primary: vm.tableParams.selectedRow == row}">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'global.title'|translate" sortable="'name'" >{{row.name}}</td>
+					<td data-title="'card.order.deliveryPlace'|translate" sortable="'deliveryPlace.name'">{{row.deliveryPlaceName}}</td>
+					<td data-title="'card.groupOrder.passengersCount'|translate">{{row.customers.length}}</td>
+					<td data-title="'grid.arrivalDate'|translate" sortable="'arrivalDate'">{{row.arrivalDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'grid.status'|translate" sortable="'status'">
+						<status-label inner-text="row.status" rules="{'label-default':constants.enums.groupOrderStatus.DRAFT, 'label-info':constants.enums.groupOrderStatus.FINALIZED}" value="row.status"></status-label>
+					</td>
+				</tr>
+
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

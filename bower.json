@@ -1,0 +1,199 @@
+{
+  "name": "Business Profiler",
+  "description": "A front office admin panel for tourism bussines owners",
+  "main": "",
+  "authors": [
+    "ITTD Team"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^0.3.1",
+    "angular": "1.5.11",
+    "angular-translate": "^2.11.1",
+    "angular-translate-loader-static-files": "^2.11.1",
+    "jquery": "2.1.4",
+    "bootstrap": "3.3.6",
+    "PACE": "pace#1.0.2",
+    "jquery-slimscroll": "jquery-slimScroll#^1.3.8",
+    "ng-file-upload-shim": "^12.2.5",
+    "ng-file-upload": "^12.2.5",
+    "sweetalert": "^1.1.3",
+    "ng-tags-input": "^3.1.1",
+    "moment": "^2.14.1",
+    "angular-messages": "#1.5.8",
+    "angular-bootstrap": "^2.1.3",
+    "ng-table": "^1.0.0",
+    "ng-vestadp": "^2.0.0",
+    "a0-angular-storage": "^0.0.15",
+    "toastr": "^2.1.3",
+    "ckeditor": "^4.5.11",
+    "angular-ckeditor": "^1.0.3",
+    "angular-sanitize": "#1.5.8",
+    "nwmapper": "^1.0.0",
+    "autoNumeric": "^1.9.46",
+    "lightbox2": "^2.8.2",
+    "angular-drag-and-drop-lists": "^1.4.0",
+    "angular-ui-select": "^0.19.6",
+    "breakpoint-sass": "^2.7.1",
+    "webui-popover": "^2.1.15",
+    "angular-oauth2": "^4.1.0",
+    "angular-animate": "1.5.x",
+    "highcharts": "^5.0.7",
+    "ittd-angular-shared": "/Users/farzad/Sites/ittd-angular-shared#^1.1.2"
+  },
+  "overrides": {
+    "jquery-slimscroll": {
+      "main": "jquery.slimscroll.js"
+    },
+    "toastr": {
+      "main": [
+        "toastr.js"
+      ]
+    },
+    "moment": {
+      "main": [
+        "moment.js",
+        "locale/fa.js"
+      ]
+    },
+    "ng-tags-input": {
+      "main": [
+        "ng-tags-input.js",
+        "ng-tags-input.css",
+        "ng-tags-input.bootstrap.css"
+      ]
+    },
+    "sweetalert": {
+      "main": "dist/sweetalert.min.js"
+    },
+    "angular": {
+      "dependencies": {
+        "jquery": "~2.1.4"
+      }
+    },
+    "PACE": {
+      "dependencies": {
+        "ng-file-upload": "^12.2.5"
+      }
+    }
+  },
+  "distOverrides": {
+    "angular-animate": {
+      "main": "./angular-animate.min.js"
+    },
+    "angular-ui-router": {
+      "main": "./release/angular-ui-router.min.js"
+    },
+    "angular": {
+      "main": "./angular.min.js",
+      "dependencies": {
+        "jquery": ">=1.6"
+      }
+    },
+    "angular-translate": {
+      "main": "./angular-translate.min.js"
+    },
+    "angular-translate-loader-static-files": {
+      "main": "./angular-translate-loader-static-files.min.js"
+    },
+    "jquery": {
+      "main": "dist/jquery.min.js"
+    },
+    "bootstrap": {
+      "main": "dist/js/bootstrap.min.js"
+    },
+    "PACE": {
+      "main": "pace.min.js"
+    },
+    "jquery-slimscroll": {
+      "main": "jquery.slimscroll.min.js"
+    },
+    "ng-file-upload-shim": {
+      "main": "ng-file-upload-shim.min.js"
+    },
+    "ng-file-upload": {
+      "main": "ng-file-upload.min.js"
+    },
+    "sweetalert": {
+      "main": "dist/sweetalert.min.js"
+    },
+    "ng-tags-input": {
+      "main": [
+        "ng-tags-input.min.js",
+        "ng-tags-input.min.css",
+        "ng-tags-input.bootstrap.min.css"
+      ]
+    },
+    "moment": {
+      "main": [
+        "min/moment.min.js",
+        "locale/fa.js"
+      ]
+    },
+    "angular-messages": {
+      "main": "./angular-messages.min.js"
+    },
+    "angular-bootstrap": {
+      "main": [
+        "./ui-bootstrap-tpls.min.js"
+      ]
+    },
+    "ng-table": {
+      "main": [
+        "./dist/ng-table.min.js",
+        "./dist/ng-table.min.css"
+      ]
+    },
+    "ng-vestadp": {},
+    "a0-angular-storage": {
+      "main": "dist/angular-storage.min.js"
+    },
+    "toastr": {
+      "main": "toastr.min.js"
+    },
+    "ckeditor": {},
+    "angular-ckeditor": {
+      "main": "angular-ckeditor.min.js"
+    },
+    "angular-sanitize": {
+      "main": "./angular-sanitize.min.js"
+    },
+    "nwmapper": {},
+    "autoNumeric": {
+      "main": "./autoNumeric-min.js"
+    },
+    "lightbox2": {
+      "main": [
+        "./dist/js/lightbox.min.js",
+        "./dist/css/lightbox.min.css"
+      ]
+    },
+    "angular-drag-and-drop-lists": {
+      "main": "angular-drag-and-drop-lists.min.js"
+    },
+    "angular-ui-select": {
+      "main": [
+        "dist/select.min.js",
+        "dist/select.min.css"
+      ]
+    },
+    "breakpoint-sass": {},
+    "webui-popover": {
+      "main": [
+        "dist/jquery.webui-popover.min.css",
+        "dist/jquery.webui-popover.min.js"
+      ]
+    },
+    "angular-oauth2": {
+      "main": "./dist/angular-oauth2.min.js"
+    }
+  }
+}

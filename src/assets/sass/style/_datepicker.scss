@@ -1,0 +1,48 @@
+.ui-vestadp-maincontainer {
+	z-index: 10000;
+	.ui-vestadp-container {
+		width: 19em;
+		font-family: $rtl-font-family-base;
+		/*rtl:remove*/
+		font-family: $ltr-font-family-base;
+		.ui-vestadp-day {
+			padding:1.5%;
+			border-radius: 50%;
+			border: solid 2px transparent;
+			&:hover {
+				background-color: #ddd;
+				color: #000;
+			}
+
+			&.ui-vestadp-inactive{
+				color: silver;
+			}
+			&.ui-vestadp-today {
+				border: solid 2px $primary-color;
+				background-color: #fff;
+				color: #000;
+			}
+			&.ui-vestadp-selected {
+				background-color: $primary-color;
+				color: #fff;
+			}
+			&[disabled] {
+				border-color: transparent;
+			}
+		}
+
+		.ui-vestadp-calendar {
+			margin-top:2px;
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.ui-vestadp-header {
+	line-height: 17pt;
+	.ui-vestadp-prev,
+	.ui-vestadp-next {
+		/*rtl:ignore*/
+		direction: ltr;
+	}
+}

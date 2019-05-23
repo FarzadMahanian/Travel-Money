@@ -1,0 +1,83 @@
+<div ng-form="groupOrderConfirmDataFrom" class="pl-15 pr-15" novalidate>
+	<div class="row">
+		<legend class="mt-20">
+			<span>{{'card.groupOrder.orderInfo'|translate}}</span>
+		</legend>
+		<div class="col-xs-12 col-sm-6">
+			<h4><strong>{{'card.groupOrder.name'|translate}}: </strong><span class="ml-10">{{vm.order.name}}</span></h4>
+		</div>
+		<div class="col-xs-12 col-sm-6">
+			<h4><strong>{{'card.groupOrder.orderDate'|translate}}: </strong><span class="ml-10">{{vm.order.creationDate|date:'yyyy-MM-dd'}}</span></h4>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+			<h4><strong>{{'card.groupOrder.deliveryPlace'|translate}}: </strong><span class="ml-10">{{vm.order.cityId}} - {{vm.order.deliveryPlaceName}}</span></h4>
+		</div>
+		<div class="col-xs-12 col-sm-6">
+			<h4><strong>{{'card.groupOrder.arrivalDate'|translate}}: </strong><span class="ml-10">{{vm.order.arrivalDate|date:'yyyy-MM-dd'}}</span></h4>
+		</div>
+	</div>
+
+	<div class="row mt-40">
+		<div class="col-xs-12">
+			<legend class="mt-20">
+				<span>{{'card.groupOrder.passengers'|translate}}</span>
+			</legend>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th class="text-center">{{'grid.rowNum'|translate}}</th>
+					<th>{{'global.fullName'|translate}}</th>
+					<th>{{'global.email'|translate}}</th>
+					<th>{{'global.birthDate'|translate}}</th>
+					<th>{{'global.passportNumber'|translate}}</th>
+					<th>{{'global.passportExDate'|translate}}</th>
+					<th>{{'global.gender'|translate}}</th>
+					<th>{{'global.country'|translate}}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-repeat="row in vm.order.customers">
+					<td class="text-center">{{$index+1}}</td>
+					<td>{{row.name}} {{row.family}}</td>
+					<td>{{row.email}}</td>
+					<td>{{row.birthDate|date:'yyyy-MM-dd'}}</td>
+					<td>{{row.passportNo}}</td>
+					<td>{{row.passportExp|date:'yyyy-MM-dd'}}</td>
+					<td>{{row.gender}}</td>
+					<td>{{row.country}}</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row mt-20">
+		<div class="col-xs-12">
+			<legend class="mt-30">
+				<span>{{::'card.order.termsOfCondition'|translate}}</span>
+			</legend>
+			<p class="mb-0">
+				In order to procceed with your application you must confirm that you have read the
+				<a href="https://www.persiatravelmoney.com/en/" target="__blank"><strong> terms and conditions (opens in new window)</strong></a>.
+			</p>
+
+			<bp-form-group data-field="groupOrderConfirmDataFrom.termsOfCondition"
+						   data-form="groupOrderConfirmDataFrom"
+						   data-title="''" data-css-class="'col-md-6 p-0'">
+				<div class="animated-checkbox col-md-12 p-0">
+					<label>
+						<input type="checkbox" name="termsOfCondition" ng-required="true" ng-model="groupOrder.termsOfCondition">
+						<span class="label-text">{{'card.order.accept'|translate}}</span>
+					</label>
+				</div>
+			</bp-form-group>
+		</div>
+	</div>
+
+	<bp-wizard-actions step-form="groupOrderConfirmDataFrom"
+	hide-save-button="true" data-form="groupOrderConfirmDataFrom" data-is-loading="groupOrderConfirmDataFrom.$isLoading"
+	on-prev-step="vm.gotoWizardStep(1)" on-next-step="vm.confirmGroupOrderRequest()"/>
+</div>

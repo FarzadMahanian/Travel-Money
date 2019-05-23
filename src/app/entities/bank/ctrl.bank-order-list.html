@@ -1,0 +1,41 @@
+<bp-page-title title="'card.bank.title'"
+					description="'card.bank.description'"
+					icon-class="fa fa-university"
+			      pages="[{title:'card.bank.title', sref:'.'}]"></bp-page-title>
+
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="vm.filterFieldMetadata" filter="vm.filter"  on-search="vm.searchFilter(filter)"></bp-filter-form>
+
+		<bp-toolbar bp-role-permission="[TM_ORDER_ISSUE,TM_ORDER_REJECT]">
+			<bp-toolbar-button data-name="card.bank.issue" data-icon="fa fa-id-card-o" data-no-sref="true"
+				bp-role-permission="[TM_ORDER_ISSUE]"
+				data-click="vm.issueCard(vm.tableParams.selectedRow)" data-disabled="!vm.tableParams.selectedRow || !(vm.tableParams.selectedRow.status==constants.enums.orderStatus.PAID || vm.tableParams.selectedRow.status==constants.enums.orderStatus.ISSUED)"></bp-toolbar-button>
+			<bp-toolbar-button data-name="card.bank.reject" data-icon="fa fa-ban" data-no-sref="true"
+				bp-role-permission="[TM_ORDER_REJECT]"
+				data-click="vm.rejectCard(vm.tableParams.selectedRow)" data-disabled="!vm.tableParams.selectedRow || vm.tableParams.selectedRow.status!=constants.enums.orderStatus.PAID || vm.tableParams.selectedRow.status==constants.enums.orderStatus.REJECTED"></bp-toolbar-button>
+			<bp-toolbar-button data-name="card.order.detail" data-icon="fa fa-info" data-no-sref="true"
+				data-click="vm.showDetail(vm.tableParams.selectedRow)" data-disabled="!vm.tableParams.selectedRow"></bp-toolbar-button>
+		</bp-toolbar>
+
+		<bp-overlay ng-show="vm.tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id" ng-dblclick="vm.showDetail(row)" ng-click="vm.selectRow(row)" ng-class="{primary: vm.tableParams.selectedRow == row}">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'global.fullName'|translate" sortable="'customer.surname'">{{row.user}}</td>
+					<td data-title="'grid.arrivalDate'|translate" sortable="'arrivalDate'">{{row.arrivalDate}}</td>
+					<td data-title="'card.order.deliveryPlace'|translate" sortable="'deliveryPlaceName'">{{row.deliveryPlaceName}}</td>
+					<td data-title="'grid.date'|translate" sortable="'creationDate'">{{row.creationDate|date:"yyyy-MM-dd h:mm a"}}</td>
+					<td data-title="'grid.status'|translate" sortable="'status'">
+						<status-label inner-text="'card.order.status.'+row.status|translate" rules="{'label-warning':constants.enums.orderStatus.UNPAID, 'label-info':constants.enums.orderStatus.PAID, 'label-success':constants.enums.orderStatus.ISSUED, 'label-danger':constants.enums.orderStatus.REJECTED}" value="row.status"></status-label>
+					</td>
+				</tr>
+
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

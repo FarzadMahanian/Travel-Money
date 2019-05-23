@@ -1,0 +1,24 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">{{'card.bank.reject'|translate}}</h3>
+</div>
+<div class="modal-body modal-list-content">
+	<form name="rejectCardForm" ng-submit="vm.saveForm()" novalidate>
+		<section class="mt-20">
+			<bp-form-group data-field="rejectCardForm.pan"
+								data-form="rejectCardForm" data-is-required="true"
+								data-title="'card.bank.rejectReason'" data-css-class="'col-lg-12'"
+								data-has-validation="true">
+				<textarea ng-model="vm.card.reason" class="form-control" ng-required="true"></textarea>
+			</bp-form-group>
+		</section>
+		<div class="modal-footer">
+			<div class="col-md-6">
+					<button class="btn btn-default btn-block" type="button" ng-click="$dismiss()">{{'global.messages.close'|translate}}</button>
+			</div>
+			<div class="col-md-6">
+					<bp-loading-button is-loading="vm.isLoading" class="btn btn-warning btn-block" type="submit" title="'global.save'|translate"></bp-loading-button>
+			</div>
+		</div>
+	</form>
+</div>
+

@@ -1,0 +1,28 @@
+<bp-page-title title="'card.groupOrder.title'"
+					icon-class="fa fa-id-card"
+					description="vm.isEdit ? 'card.groupOrder.descEdit' : 'card.groupOrder.descAdd'"
+					pages="[{title:'card.groupOrder.title', sref:'.'}]"></bp-page-title>
+
+<div class="card">
+	<div class="card-body">
+			<bp-wizard-tabs active-tab-index="vm.activeTabIndex" items="vm.wizardItems"></bp-wizard-tabs>
+			<div class="tab-pages">
+				<form class="form-horizontal" name="groupCardOrderForm" data-ng-submit="vm.saveForm()" novalidate>
+					<section class="tab-page bp-animate" ng-show="vm.activeTabIndex==0">
+						<div ng-include="'app/entities/card/order/tmpl.tab-card-group-orderinfo.html'"></div>
+					</section>
+					<section class="tab-page bp-animate" ng-show="vm.activeTabIndex==1">
+						<div ng-include="'app/entities/card/order/tmpl.tab-card-group-passengerinfo.html'"></div>
+					</section>
+					<section class="tab-page bp-animate" ng-show="vm.activeTabIndex==2">
+						<div ng-include="'app/entities/card/order/tmpl.tab-card-group-confirmdata.html'"></div>
+					</section>
+					<section class="tab-page bp-animate" ng-show="vm.activeTabIndex==3">
+						<div ng-include="'app/entities/card/order/tmpl.tab-card-group-finish.html'"></div>
+					</section>
+				</form>
+
+			</div>
+		<!--<div bp-form-draft="card" draft-form-name="CardOrder"></div>-->
+	</div>
+</div>

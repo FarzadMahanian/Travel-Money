@@ -1,0 +1,31 @@
+<legend class="hidden-md hidden-lg mt-20">
+	<span>{{::'personal.detail.title'|translate}}</span>
+</legend>
+<ng-form name="personalDetailSummaryForm">
+<div class="col-md-offset-1 col-md-10">
+	<ul class="personal-details-preview mt-40">
+		<li class="list-item">
+			<div class="list-title">{{::'global.firstName'|translate}}</div>
+			<div class="list-text">{{::personalDetail.firstName}}</div>
+		</li>
+
+		<li class="list-item">
+			<div class="list-title">{{::'global.surname'|translate}}</div>
+			<div class="list-text">{{::personalDetail.surname}}</div>
+		</li>
+
+		<li class="list-item">
+			<div class="list-title">{{'global.birthDay'|translate}}</div>
+			<div class="list-text">{{::personalDetail.birthDate|date}}</div>
+		</li>
+
+		<li class="list-item">
+			<div class="list-title">{{::'global.address'|translate}}</div>
+			<div class="list-text">{{::personalDetail.address}}</div>
+		</li>
+	</ul>
+</div>
+	<div class="clearfix"></div>
+	<bp-wizard-actions disable-prev="true" disable-next="false" step-form="personalDetailSummaryForm" data-form="newCardOrderForm"
+				data-is-loading="newCardOrderForm.$isLoading" hide-save-button="true" on-next-step="gotoWizardStep(tabIndexSeed+1)" />
+</ng-form>

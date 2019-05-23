@@ -1,0 +1,62 @@
+							<ng-form name="addressInformationFrom">
+								<section class="mt-20">
+									<legend class="hidden-md hidden-lg">
+										<span>{{'form.addressInformation.title'|translate}}</span>
+									</legend>
+
+									<div class="row">
+										<div class="col-xs-12 col-sm-6">
+											<bp-form-group data-field="addressInformationFrom.country"
+																data-form="addressInformationFrom"
+																data-has-validation="true"
+																data-is-required="true" data-title="'global.country'"
+																data-has-select="true" class="col-xs-12 col-sm-6 pr-0">
+
+												<ui-select ng-model="personalDetail.country" theme="select2" ng-required="true" name="country">
+													<ui-select-match placeholder="{{'global.country'|translate}}" allow-clear="true">
+														<span ng-bind="$select.selected.name"></span>
+													</ui-select-match>
+													<ui-select-choices
+														repeat="item.id as item in countries track by item.id">
+														<span ng-bind="item.name"></span>
+													</ui-select-choices>
+												</ui-select>
+											</bp-form-group>
+
+											<bp-form-group data-field="addressInformationFrom.city"
+																data-form="addressInformationFrom"
+																data-is-required="true" data-title="'global.city'"
+																data-has-validation="true" class="col-xs-12 col-sm-6 pr-0">
+												<input name="city" type="text" ng-model="personalDetail.city"
+														 placeholder="{{'global.city'|translate}}"
+														 class="form-control" ng-required="true"/>
+											</bp-form-group>
+										</div>
+									</div>
+
+									<bp-form-group data-field="addressInformationFrom.postalCode"
+														data-form="addressInformationFrom"
+														data-css-class="'col-xs-12 col-sm-6'" data-is-required="true"
+														data-title="'global.postalCode'" data-has-validation="true">
+										<input name="postalCode" type="text"
+												 bp-auto-numeric="{aSep:'', dGroup:10, vMin: '0', vMax: '99999999999999999', lZero: 'keep'}"
+												 placeholder="{{'global.postalCode'|translate}}"
+												 class="form-control" ng-required="true"
+												 ng-model="personalDetail.postalCode"/>
+									</bp-form-group>
+
+									<bp-form-group data-field="addressInformationFrom.address" data-form="addressInformationFrom"
+														data-title="'global.address'" data-css-class="'col-xs-12 col-sm-6'"
+														data-has-validation="true" data-is-required="true">
+										<textarea class="form-control" rows="3" ng-model="personalDetail.address"
+													 ng-required="true" name="address"
+													 placeholder="{{'global.address'|translate}}"></textarea>
+									</bp-form-group>
+
+								</section>
+								<bp-wizard-actions step-form="addressInformationFrom" on-next-step="gotoWizardStep(3)"
+														 hide-save-button="true"
+														 data-form="newPersonalDetailForm" data-is-loading="newPersonalDetailForm.$isLoading"
+														 on-prev-step="gotoWizardStep(1)"/>
+
+							</ng-form>

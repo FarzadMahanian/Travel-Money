@@ -1,0 +1,63 @@
+div.ng-table-pager .pagination {
+	margin: 0px;
+}
+
+.modal-list-content {
+	padding: 0px;
+	.table {
+		margin: 0px;
+	}
+}
+
+.ng-table {
+	th.sortable {
+		.sort-indicator {
+			display: block;
+		}
+	}
+}
+
+table.table {
+	thead {
+		tr:first-child{
+			th {
+				border-bottom: solid 2px #000;
+			}
+		}
+		tr:last-child {
+			th {
+				padding: 5px;
+				.form-control {
+					padding: 4px 8px;
+					border-width: 1px;
+				}
+			}
+		}
+	}
+	&.table-hover {
+
+		tr.primary {
+			background-color: lighten($primary-color, 23%);
+			color: #ffffff;
+			&:hover {
+				background-color: lighten($primary-color, 20%);
+			}
+		}
+	}
+	&.table-border-around {
+		border: 1px solid $table-border-color;
+	}
+
+	tr {
+		.cell-link {
+			text-decoration: underline;
+		}
+		&.primary {
+			.cell-link {
+				color: white;
+			}
+		}
+	}
+
+}
+

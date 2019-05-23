@@ -1,0 +1,54 @@
+{
+	"account": {
+		"roles": {
+			"title": "Roles",
+			"description": "All roles in this system",
+			"create": "Create new role",
+			"update": "Update role",
+			"grid": {
+				"name": "Name",
+				"creationDate": "Creation Date"
+			}
+		},
+		"form": {
+			"email": "Email",
+			"username": "Username",
+			"password": "Password",
+			"mobile": "Mobile Number",
+			"persianName": "Persian Name",
+			"englishName": "English Name",
+			"signin": "Sign In",
+			"signup": "Sign Up",
+			"confirmPassword": "Comfirm Password",
+			"captcha": "CAPTCHA",
+			"activationCode": "Activation Code",
+			"permissions": "Privilages"
+		},
+		"messages": {
+			"signin": "Sign In",
+			"signup": "Sign Up",
+			"signout": "Sign Out",
+			"forgotPassword": "Forgot Password",
+			"staySignedIn": "Stay Signed In",
+			"reset": "Reset",
+			"backToLogin": "Back To Login",
+			"wrongCredentials": "Username and/or Password is not correct.",
+			"activate": "Activate",
+			"wrongActivationCode": "Wrong activation code",
+			"yourAccountCreated": "Your account created successfully. An activation code is sent to your email. Please use that code to activate your account using this form.",
+			"yourAccountIsNotActivated": "Your account is not activated yet. Please use the code that is sent to your email to activate your account.",
+			"yourAccountActivated": "Your account activated successfully",
+			"activationCodeResent": "Activation code resent successfully",
+			"waitForResendingActivationCode": "Wait for resending the activation code"
+		},
+		"permissions": {
+			"TM_CUSTOMER_CREATE": "Create a new user",
+			"TM_CUSTOMER_UPDATE": "Update existing user",
+			"TM_CUSTOMER_LIST" : "View users list",
+			"TM_CUSTOMER_DELETE" : "Delete existing user",
+			"TM_BANK_BRANCH_ADD": "Add new banck branch",
+			"TM_BANK_GET": "Get bank list",
+			"TM_BANK_ADD": "Create new bank"
+		}
+	}
+}

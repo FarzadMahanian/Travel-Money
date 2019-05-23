@@ -1,0 +1,26 @@
+<bp-page-title title="'card.cardList.title'"
+					description="'card.cardList.description'"
+					icon-class="fa fa-th-list"
+			      pages="[{title:'card.cardList.title', sref:'.'}]"></bp-page-title>
+
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="filterFieldMetadata" filter="filter" on-search="searchFilter(filter)"></bp-filter-form>
+
+		<bp-overlay ng-show="tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="tableParams" class="table table-striped table-bordered table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+			<tr ng-repeat="row in $data">
+				<td data-title="'grid.rowNum'|translate"  class="text-center">{{$index+1}}</td>
+				<td data-title="'grid.cardNumber'|translate" sortable="'pan'" >{{row.pan|separate}}</td>
+				<td data-title="'grid.status'|translate" sortable="'cardStatus'">{{row.cardStatus}} </td>
+				<td data-title="'grid.expirationDate'|translate" sortable="'expirationDate'">{{row.expirationDate|separate:'-':2}}</td>
+				<td data-title="'grid.issueDate'|translate" sortable="'issueDate'">{{row.issueDate|date:"yyyy-MM-dd"}}</td>
+			</tr>
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>
+

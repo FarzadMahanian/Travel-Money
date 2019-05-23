@@ -1,0 +1,138 @@
+<bp-page-title title="'card.transaction.title'"
+					description="'card.transaction.description'"
+					icon-class="fa fa-history"
+               pages="[{title:'card.transaction.title', sref:'.'}]"></bp-page-title>
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+			<form class="form-horizontal" name="transactionSearchForm" data-ng-submit="searchTransaction()" novalidate>
+				<bp-panel  class="panel-search">
+					<section>
+							<div class="row no-validation-message">
+								<div class="col-xs-12 col-md-6 p-0">
+								<bp-form-group data-field="transactionSearchForm.pan"
+													data-form="transactionSearchForm"
+													data-has-validation="true"
+													data-is-required="true" data-title="'global.chooseCard'"
+													data-has-select="true" data-css-class="'col-xs-12'"
+													class="col-xs-12">
+
+									<ui-select ng-model="transactionSearchData.cardId" theme="select2" ng-required="true" name="pan" search-enabled="false">
+											<ui-select-match placeholder="{{'global.chooseCard'|translate}}"  allow-clear="true">
+												<span ng-bind="$select.selected.pan|separate"></span>
+											</ui-select-match>
+											<ui-select-choices repeat="item.id as item in (cards) track by item.pan">
+												<span ng-bind="item.pan|separate"></span>
+											</ui-select-choices>
+										<ui-select-no-choice>
+											{{'card.noCard'|translate}}
+										</ui-select-no-choice>
+									</ui-select>
+								</bp-form-group>
+								</div>
+								<div class="col-xs-12 col-md-6 p-0">
+								<bp-form-group data-field="transactionSearchForm.pin"
+													data-form="transactionSearchForm"
+													data-css-class="'col-xs-12 pr-0'"
+													data-is-required="true" data-title="'global.enterPin'"
+													data-has-validation="true" class="col-xs-6">
+										<input name="pin" type="password" ng-model="transactionSearchData.pin"
+												placeholder="{{'global.enterPin'|translate}}"
+												class="form-control" ng-required="true"/>
+								</bp-form-group>
+								<bp-form-group data-field="transactionSearchForm.cvv"
+													data-form="transactionSearchForm"
+													data-css-class="'col-xs-12 pl-0'"
+													data-is-required="true" data-title="'card.bank.cvv'"
+													data-has-validation="true" class="col-xs-6">
+										<input name="cvv" ng-model="transactionSearchData.cvv2"
+												bp-auto-numeric="{aSep:'', dGroup:4, vMin: '0', vMax:'9999'}"
+												placeholder="{{'card.bank.cvv'|translate}}"
+												class="form-control" ng-required="true"/>
+								</bp-form-group>
+							</div>
+
+							</div>
+
+							<div class="row">
+								<bp-form-group data-field="transactionSearchForm.from"
+													data-form="transactionSearchForm" class="col-xs-12 col-md-6"
+													data-is-required="true" data-has-validation="true"
+													data-title="'card.transaction.dateFrom'" data-css-class="'col-xs-12'">
+									<input name="from" type="text"
+												vestadp="{{vestadpOptions()}}" ng-model="transactionSearchData.fromDate"
+												placeholder="{{'global.from'|translate}}" ng-required="true"
+												class="form-control white-readonly" ng-readonly="true">
+								</bp-form-group>
+								<bp-form-group data-field="transactionSearchForm.to"
+													data-form="transactionSearchForm" class="col-xs-12 col-md-6"
+													data-is-required="true" data-has-validation="true"
+													custom-validations="{oneMonthBigger:'card.transaction.toDateValidationMsg'}"
+													data-title="'card.transaction.dateTo'" data-css-class="'col-xs-12'">
+									<input name="to" type="text"
+												vestadp="{{vestadpOptions()}}" min-date="transactionSearchData.fromDate"
+												ng-model="transactionSearchData.toDate"
+												bp-compare-to="transactionSearchData.fromDate"
+												compare-options="{type:'date', op:'lt', offset: 30, validationMsg: 'oneMonthBigger'}"
+												placeholder="{{'global.to'|translate}}" ng-required="true"
+												class="form-control white-readonly" ng-readonly="true">
+								</bp-form-group>
+							</div>
+
+							<div class="card-footer mt-20">
+								<div class="col-xs-6 col-lg-2 col-lg-offset-4 pr-10 pl-10">
+									<button class="btn btn-primary btn-block" type="submit">
+											{{'global.table.search'|translate}}
+									</button>
+								</div>
+								<div class="col-xs-6 col-lg-2 pr-0 pl-0">
+									<button class="btn btn-default btn-block" type="reset" ng-click="clearSearch()">
+											{{'global.table.clearSearch'|translate}}
+									</button>
+								</div>
+							</div>
+					</section>
+				</bp-panel>
+			</form>
+
+			<div class="row" ng-show="accountBalance!=null">
+			<div class="alert alert-info col-md-offset-2 col-md-8 p-10 mb-20 mt-0 text-center">
+				<span style="font-size: 2em">Your account balance is {{accountBalance|bpCurrency:"IRR" }}</span>
+			</div>
+			</div>
+
+
+			<bp-overlay ng-show="transactionSearchForm.$isLoading"></bp-overlay>
+			<table ng-table="tableParams" class="table table-striped table-bordered table-hover table-border-around text-center"
+					template-pagination="app/base/ng-table-pagination.html">
+				<thead>
+				<tr>
+					<th width="30" class="text-center">{{'grid.rowNum'|translate}}</th>
+					<th>Source Issuer</th>
+					<th>Dest Issuer</th>
+					<th>Trace Number</th>
+					<th>{{'grid.date'|translate}}</th>
+					<th>Type</th>
+					<th>{{'grid.transferAmount'|translate}}</th>
+					<th>{{'grid.referenceNumber'|translate}}</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr ng-if="transactions.length<1">
+					<td colspan="7">{{'global.messages.noRow'|translate}}</td>
+				</tr>
+				<tr ng-repeat="row in $data">
+					<td class="text-center">{{$index+1}}</td>
+					<td>{{row.sourceIssuer}}</td>
+					<td>{{row.destIssuer}}</td>
+					<td>{{row.traceNumber}}</td>
+					<td>{{row.date|date:"yyyy-MM-dd h:mm a"}}</td>
+					<td>{{row.txType}}</td>
+					<td>{{row.amount|bpCurrency:"IRR"}}</td>
+					<td>{{row.referenceNumber}}</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

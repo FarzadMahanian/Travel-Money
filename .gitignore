@@ -1,0 +1,49 @@
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn
+.vscode/
+
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea/
+*.iml
+out
+gen### Java template
+*.class
+
+# Visual Studio Files
+business-profiler.sln
+.vs
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+*.DS_Store
+
+bower_components/
+node_modules/
+src/main/webapp/js/vendor/
+src/main/webapp/css/
+src/main/webapp/i18n/*.json
+/bower_components/
+src/main/webapp/uploads/
+logs/
+
+
+# Distribution Files #
+dist/

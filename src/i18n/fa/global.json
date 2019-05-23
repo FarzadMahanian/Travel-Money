@@ -1,0 +1,386 @@
+{
+  "card": {
+    "order": {
+      "title": "Card Order",
+      "add": "Order New Card",
+      "edit": "Edit Existing Card",
+      "deliveryCondition": "Delivery Condition",
+      "termsOfCondition": "Terms Of Condition",
+      "accept": "I accept terms and conditions"
+    },
+    "cardList": {
+      "title": "My Cards",
+		"description": "See all your issued cards"
+    },
+    "orderList": {
+      "title": "Card Order List",
+		"description": "See all your ordered cards"
+    },
+    "load": {
+      "title": "Card Load",
+      "add": "New Card Load",
+      "edit": "Edit Existing Card Load"
+    },
+    "loadList": {
+      "title": "Card Load History"
+    },
+    "transaction": {
+      "title": "Transaction History",
+      "date": "Transaction Date",
+      "dateFrom": "Transaction Date (from)",
+      "dateTo": "Transaction Date (to)"
+    }
+  },
+  "personal": {
+    "detail": {
+      "title": "Personal Detail",
+      "add": "Add Personal Detail",
+      "edit": "Edit Personal Detail"
+    }
+  },
+  "users": {
+    "title": "Users",
+    "description": "All Users",
+    "create": "Add New User",
+    "update": "Edit Existing User"
+  },
+  "payment": {
+    "title": "Payment",
+    "method": {
+      "title": "Payment Method"
+    }
+  },
+  "form": {
+    "dataRecovery": "Data Recovery",
+    "recoveryMessage": "Available Data for Recovery:",
+    "generalInformation": {
+      "title": "General Information"
+    },
+    "passportInformation": {
+      "title": "Passport Information"
+    },
+    "addressInformation": {
+      "title": "Address Information"
+    },
+    "securityQuestion": {
+      "title": "Security Question"
+    },
+    "LoadCard": {
+      "title": "Card Load Detail"
+    }
+  },
+  "place": {
+    "title": "Delivery Place",
+    "add": "Add New Delivery Place",
+    "edit": "Edit Existing Delivery Place"
+  },
+  "grid": {
+    "rowNum": "#",
+    "arrivalDate": "Arrival Date",
+    "departureDate": "Departure Date",
+    "deliveryPlaceId": "Delivery Place",
+    "status": "Status",
+    "visaExpirationDate": "Visa Expiration Date",
+    "description": "Description",
+    "cardNumber": "Card Number",
+    "expirationDate": "Expiration Date",
+    "issueDate": "Issue Date",
+    "serial": "Serial",
+    "date": "Date",
+    "balance": "Balance",
+    "transferAmount": "Transfer Amount",
+    "referenceNumber": "Reference Number"
+  },
+  "global": {
+    "siteTitle": "Persia Travel Money System",
+    "siteName": "Persia Travel Money",
+    "title": "Title",
+    "name": "Name",
+	 "userName": "User Name",
+	 "fullName": "Full Name",
+    "firstName": "First Name",
+    "surname": "Surname",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "birthDay": "Date of Birth",
+    "gender": "Gender",
+    "mobile": "Mobile Number",
+    "phone": "Phone Number",
+    "passportNumber": "Passport Number",
+    "passportExDate": "Passport Expiration Date",
+    "passportScan": "Passport Scan",
+    "postalCode": "Postal Code",
+    "address": "Address",
+    "country": "Country",
+    "city": "City",
+    "bankName": "Bank Name",
+    "branch": "Branch",
+    "place": "Place",
+    "contactName": "Contact Name",
+    "contactPhoneNumber": "Contact Phone Number",
+    "availableBank": "Available Bank",
+    "arrivalDate": "Arrival Date",
+    "securityQuestion": "Security Question",
+    "securityAnswer": "Security Answer",
+    "chooseCard": "Choose Your Card",
+    "enterPin": "Enter Pin",
+    "loadAmount": "Load Amount",
+    "loadCard": "Load Card",
+    "convertToRial": "Convert To Rial",
+    "currency": "Currency",
+    "from": "From",
+    "to": "To",
+
+
+
+
+
+    "navbar": {
+      "settings": "Settings",
+      "logout": "Logout",
+      "profile": "Profile"
+    },
+    "table": {
+      "first": "First",
+      "last": "Last",
+      "prev": "Prev",
+      "next": "Next",
+      "search": "Search",
+      "clearSearch": "Clear",
+      "show": "Show",
+      "row": "Rows"
+    },
+    "menu": {
+      "test1": "Test 1",
+      "test2": "Test 2",
+      "test3": "Test 3",
+      "test4": "Test 4"
+    },
+    "entity": {
+      "create": "Create",
+      "update": "Update",
+      "edit": "Edit",
+      "delete": "Delete",
+      "preview": "Preview",
+      "history": "History",
+      "review": "Review",
+      "operation": "Operation",
+      "states": {
+        "Pending": "Pending",
+        "Confirm": "Confirmed",
+        "Rejected": "Rejected",
+        "active": "Active",
+        "deactive": "Deactive",
+        "true": "فعال",
+        "false": "غیرفعال"
+      }
+    },
+    "messages": {
+      "loading": "Loading...",
+      "yes": "Yes",
+      "no": "No",
+      "ok": "OK",
+      "cancel": "Cancel",
+      "close": "Close",
+		"paymentCanceledByUser": "Payment canceled by user",
+      "deleteConfirm": "Are you sure to delete?",
+      "errorOccurTitle": "Error",
+      "errorOccurMessage": "Error Occured!",
+		"errorTryLater": "Erro occured! please try agin later",
+      "registryTitle": "Registry New User",
+      "registryMessage": "Registry Successful!",
+      "registryDuplicateTitle": "User Duplicate",
+      "registryDuplicateMessage": "User Duplicate!",
+      "saving": "Saving",
+      "warning": "Warning",
+      "resolveValidations": "Resolve form validations first!",
+      "dirtyForm": "Changes to this form will be discarded.",
+      "entitySaved": "Entity saved successfully",
+      "deleting": "ِDeleting",
+      "entityDeleted": "Entity deleted successfully",
+      "noRow": "There is no row to show.",
+      "deleteAll": "Delete All",
+      "notNow": "Not Now",
+		"operationDoneSuccessfully": "Operation done successfully."
+    },
+    "contactInfo": "Contact Information",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "day": "day(s)",
+    "common": {
+      "search": "Search",
+      "contactUs": "Contact Us",
+      "from": "From",
+      "to": "to",
+      "security": "Security",
+      "all": "All",
+      "wizardNext": "Next",
+      "wizardPrev": "Previous"
+    },
+    "fields": {
+      "rowNum": "#",
+      "status": "Status",
+      "creationDate": "Creation Date",
+      "modificationDate": "Modification Date",
+      "title": "Title",
+      "logo": "Logo",
+      "aboutUs": "About Us",
+      "gallery": "Gallery",
+      "address": "Address",
+      "country": "Country",
+      "city": "City",
+      "postalCode": "Postal Code",
+      "phone": "Phone",
+      "tellCode": "Code",
+      "fax": "Fax",
+      "description": "Description",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "personalCode": "Personal Code",
+      "personalCodePlaceholder": "Personal Code (10 numbers)",
+      "mobile": "Mobile Number",
+      "email": "Email Address",
+      "site": "Web Site",
+      "license": "License",
+      "files": "Files",
+      "location": "Location",
+      "lat": "Latitude",
+      "long": "longitude",
+      "messages": {
+        "required": "This field is required !",
+        "short": "Is too short !",
+        "long": "Is too long !",
+        "min": "Is too low !",
+        "max": "Is too high !",
+        "email": "This field needs to be a valid email !",
+        "compareTo": "Passwords not Same!",
+        "minFileLength": "Minimum file count is not selected yet !",
+        "maxSize": "Selected file size is more than permitted size !",
+        "maxFileLength": "Maximum file count is reached !"
+      }
+    }
+  },
+  "user": {
+    "title": "User",
+    "pluralTitle": "Users",
+    "titleInfo": "User Information",
+    "role": {
+      "title": "Role",
+      "admin": "Admin",
+      "user": "User",
+      "agency": "Agency"
+    },
+    "list": {
+      "description": "List of Users"
+    },
+    "detail": {
+      "insert": {
+        "description": "Add New User"
+      },
+      "update": {
+        "description": "Edit User"
+      }
+    },
+    "profile": {
+      "title": "Profile",
+      "description": "User Profile Page"
+    }
+  },
+  "account": {
+    "form": {
+      "email": "Email",
+      "username": "Username",
+      "password": "Password",
+      "mobile": "Mobile",
+      "persianName": "Persian Name",
+      "englishName": "English Name",
+      "signin": "Sing In",
+      "signup": "Sign Up",
+      "confirmPassword": "Confirm Password",
+      "captcha": "Captcha"
+    },
+    "messages": {
+      "signin": "Sign In",
+      "signup": "Sign Up",
+      "signout": "Sign Out",
+      "forgotPassword": "Forget Password",
+      "staySignedIn": "Stay Signed In",
+      "reset": "Reset",
+      "backToLogin": "Back To Login"
+    }
+  },
+  "language": {
+    "fa": "فارسی",
+    "en": "English",
+    "ar": "العربیه"
+  },
+  "service": {
+    "title": "Service",
+    "pluralTitle": "Services",
+    "titleInfo": "Service Information",
+    "form": {
+      "title": "Title",
+      "picture": "Picture",
+      "description": "Description",
+      "agencies": "Select Office"
+    },
+    "list": {
+      "description": "List of Services"
+    },
+    "detail": {
+      "insert": {
+        "description": "Add New Service"
+      },
+      "update": {
+        "description": "Edit Service"
+      }
+    }
+  },
+  "package": {
+    "title": "Package",
+    "pluralTitle": "Packages",
+    "titleInfo": "Package Information",
+    "dateTitle": "Dates",
+    "priceTitle": "Tariffs",
+    "pictureTitle": "Pictures",
+    "itinerary": {
+      "title": "Itinerary",
+      "insert": "Add new itinerary",
+      "update": "Update existing itinerary"
+    },
+    "form": {
+      "title": "Title",
+      "logo": "logo",
+      "gallery": "Gallery",
+      "duration": "Duration",
+      "description": "Description",
+      "cancelPolicy": "Cancellation Policy",
+      "overview": "Overview",
+      "agencies": "Select Office",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "price": "Price",
+      "minNumber": "Person (From)",
+      "maxNumber": "Person (To)",
+      "ageRequirement": "Age Requirement",
+      "country": "Country",
+      "city": "City",
+      "banner": "Banner",
+      "topPackage": "Top Package"
+    },
+    "list": {
+      "description": "List of Packages"
+    },
+    "detail": {
+      "insert": {
+        "description": "Add New Package"
+      },
+      "update": {
+        "description": "Edit Package"
+      }
+    }
+  }
+}
+

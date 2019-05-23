@@ -1,0 +1,44 @@
+<div class="modal-header">
+	<h3 class="modal-title" id="modal-title">{{'card.bank.issue'|translate}}</h3>
+</div>
+<div class="modal-body modal-list-content">
+	<form name="issueCardForm" ng-submit="vm.saveForm()" novalidate>
+		<section class="mt-20">
+			<bp-form-group data-field="issueCardForm.pan"
+								data-form="issueCardForm" data-is-required="true"
+								data-title="'card.bank.pan'" data-css-class="'col-lg-12'"
+								data-has-validation="true">
+				<input name="pan" type="text" ng-model="vm.card.pan"
+							ng-pattern="/\d{16}/" ng-minlength="16" maxlength="16"
+							class="form-control">
+			</bp-form-group>
+			<bp-form-group data-field="issueCardForm.expirationDateYear"
+								data-form="issueCardForm" data-is-required="true" class="col-xs-6 p-0"
+								data-title="'card.bank.expirationDateYear'" data-css-class="'col-xs-12'"
+								data-has-validation="true">
+				<input name="expirationDateYear" type="text" ng-model="vm.card.expirationDateYear"
+							bp-auto-numeric="{aSep:'', dGroup:3, vMin: '0', vMax:'99', lZero: 'keep'}"
+							class="form-control" ng-required="true">
+			</bp-form-group>
+			<bp-form-group data-field="issueCardForm.expirationDateMonth"
+								data-form="issueCardForm" data-is-required="true"
+								data-title="'card.bank.expirationDateMonth'" data-css-class="'col-xs-12'" class="col-xs-6 p-0"
+								data-has-validation="true">
+				<input name="expirationDateMonth" type="text" ng-model="vm.card.expirationDateMonth"
+							bp-auto-numeric="{aSep:'', dGroup:3, vMin: '0', vMax:'12', lZero: 'keep'}"
+							ng-minlength="2"
+							class="form-control" ng-required="true">
+			</bp-form-group>
+		</section>
+		<div class="clearfix"></div>
+		<div class="modal-footer">
+			<div class="col-xs-6">
+					<button class="btn btn-default btn-block" type="button" ng-click="$dismiss()">{{'global.messages.close'|translate}}</button>
+			</div>
+			<div class="col-xs-6">
+					<bp-loading-button is-loading="vm.isLoading" class="btn btn-primary btn-block" type="submit" title="'global.save'|translate"></bp-loading-button>
+			</div>
+		</div>
+	</form>
+</div>
+

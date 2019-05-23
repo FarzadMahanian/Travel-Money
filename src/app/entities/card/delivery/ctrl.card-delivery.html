@@ -1,0 +1,38 @@
+<bp-page-title title="'card.delivery.title'" description="'card.delivery.description'" icon-class="fa fa-motorcycle" pages="[{title:'card.delivery.title', sref:'.'}]"></bp-page-title>
+
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="vm.filterFieldMetadata" filter="vm.filter" on-search="vm.searchFilter(filter)"></bp-filter-form>
+
+		<bp-toolbar  bp-role-permission="[TM_T_CARD_DELIVER]">
+			<bp-toolbar-button data-name="card.delivery.deliver" data-icon="fa fa-handshake-o" data-no-sref="true"
+			   bp-role-permission="[TM_T_CARD_DELIVER]"
+				data-click="vm.deliver(vm.tableParams.selectedRow)" data-disabled="!vm.tableParams.selectedRow"></bp-toolbar-button>
+			<bp-toolbar-button data-name="card.delivery.return" data-icon="fa fa-mail-reply" data-no-sref="true"
+				data-click="vm.return(vm.tableParams.selectedRow)" data-disabled="!vm.tableParams.selectedRow"></bp-toolbar-button>
+		</bp-toolbar>
+
+		<bp-overlay ng-show="vm.tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="vm.tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id"  ng-click="vm.selectRow(row)" ng-class="{primary: vm.tableParams.selectedRow == row}">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'card.delivery.issueDate'|translate" sortable="'issueDate'" >{{row.issueDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'global.fullName'|translate" sortable="'customer.surname'">{{row.firstName}} {{row.surname}}</td>
+					<td data-title="'global.passportNumber'|translate" sortable="'customer.passportNumber'">{{row.passportNumber}}</td>
+					<td data-title="'card.bank.pan'|translate" sortable="'pan'">{{row.pan|separate}}</td>
+					<td data-title="'card.order.arrivalDate'|translate" sortable="'order.arrivalDate'" >{{row.arrivalDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'grid.status'|translate" sortable="'status'">
+						<span class="label cell-label" ng-class="{'label-info':row.status == constants.enums.cardStatus.ISSUED, 'label-success': row.status == constants.enums.cardStatus.DELIVERED}">
+							{{row.status}}
+						</span>
+					</td>
+				</tr>
+
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

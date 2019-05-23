@@ -1,0 +1,40 @@
+<bp-page-title title="'card.orderList.title'"
+					description="'card.cardList.description'"
+					icon-class="fa fa-th-list"
+			   	pages="[{title:'card.orderList.title', sref:'.'}]"></bp-page-title>
+
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="filterFieldMetadata" filter="filter" on-search="searchFilter(filter)"></bp-filter-form>
+
+		<bp-toolbar>
+			<bp-toolbar-button data-name="card.order.detail" data-icon="fa fa-info" data-no-sref="true"
+				data-click="showDetail(tableParams.selectedRow)" data-disabled="!tableParams.selectedRow"></bp-toolbar-button>
+			<bp-toolbar-button data-name="card.order.repay" data-icon="fa fa-money" data-no-sref="true"
+				data-click="repayOrder(tableParams.selectedRow)" data-disabled="!tableParams.selectedRow || tableParams.selectedRow.status!=constants.enums.orderStatus.UNPAID"></bp-toolbar-button>
+		</bp-toolbar>
+
+		<bp-overlay ng-show="tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+
+				<tr ng-repeat="row in $data track by row.id"  ng-dblclick="showDetail(row)" ng-click="selectRow(row)" ng-class="{primary: tableParams.selectedRow == row}">
+					<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+					<td data-title="'grid.arrivalDate'|translate" sortable="'arrivalDate'" >{{row.arrivalDate|date:'yyyy-MM-dd'}}</td>
+					<td data-title="'card.order.deliveryPlace'|translate" sortable="'deliveryPlaceName'">{{row.deliveryPlaceName}}</td>
+					<td data-title="'grid.date'|translate" sortable="'creationDate'">{{row.creationDate|date:'yyyy-MM-dd h:mm a'}}</td>
+					<td data-title="'grid.groupOrderName'|translate" sortable="'groupName'">{{row.groupName}}</td>
+					<td data-title="'grid.status'|translate" sortable="'status'">
+						<span class="label cell-label" ng-class="{'label-warning':row.status==constants.enums.orderStatus.UNPAID, 'label-info':row.status==constants.enums.orderStatus.PAID, 'label-success':row.status==constants.enums.orderStatus.ISSUED, 'label-danger':row.status==constants.enums.orderStatus.REJECTED}">
+							{{'card.order.status.'+row.status|translate}}
+						</span>
+					</td>
+
+				</tr>
+
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

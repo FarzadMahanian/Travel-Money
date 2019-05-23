@@ -1,0 +1,40 @@
+{
+	"card": {
+		"order":{
+			"deliveryCondition":"Delivery Condition",
+			"termsOfCondition": "Terms Of Condition",
+			"confirmData": "Confirm Data",
+			"accept": "I accept terms and conditions",
+			"deliveryPlace": "Delivery Place",
+			"arrivalDate": "Arival Date",
+			"departureDate": "Departure Date",
+			"visaExpirationDate": "Visa Expiration",
+			"visaScan": "Visa Scan",
+			"payment": "Payment",
+			"finish": "Finish"
+		},
+		"bank":{
+			"title" : "Bank Order List",
+			"description": "All card request orders",
+			"issue": "Issue Card",
+			"issuedSuccessfully": "Issued successfully.",
+			"pan": "Card Number",
+			"expirationDateYear": "Exp. Year",
+			"expirationDateMonth": "Exp. Month",
+			"cvv": "cvv2",
+			"reject": "Reject Order",
+			"rejectReason": "Reject Reason"
+		},
+		"load":{
+			"locadCardSuccess": "Your card was charged successfully.",
+			"dest" : "Card Pan",
+			"sourceAmount": "Amount",
+			"destAmount": "Exchanged Amount",
+			"date": "Date and Time"
+		},
+		"transaction":{
+			"description": "Get your card's last transactions and balance",
+			"criteria": "Criteria"
+		}
+	}
+}

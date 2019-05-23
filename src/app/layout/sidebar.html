@@ -1,0 +1,18 @@
+<aside class="main-sidebar hidden-print">
+	<section class="sidebar">
+		<img class="site-logo hidden-sm hidden-md hidden-lg" src="img/logo-travelmoney-color.svg">
+		<div class="user-panel">
+			<div class="image">
+				<img src="assets/img/user.png" alt="User Image" class="img-circle"/>
+			</div>
+			<div class="info">
+				<p>{{currentUser.getFullName(locale)}}</p>
+				<p class="designation english-only">{{currentUser.userName}}</p>
+			</div>
+		</div>
+		<!-- Sidebar Menu-->
+		<ul class="sidebar-menu">
+			<bp-sidebar-menu-item  ng-repeat="item in menuitems" item="item"></bp-sidebar-menu-item>
+		</ul>
+	</section>
+</aside>

@@ -1,0 +1,153 @@
+<form name="passengerDetailForm" data-ng-submit="vm.savePassengerForm()" novalidate>
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">{{'card.groupOrder.'+vm.mode+'PassengerDetail'|translate}}</h3>
+    </div>
+    <div class="modal-body p-0">
+        <uib-tabset active="activePill" class="nav-tabs-vertical nav-tabs-right clearfix">
+            <uib-tab index="0">
+                <uib-tab-heading>
+                    <i class="fa fa-user"></i> <span>{{'card.groupOrder.personalDetails'|translate}}</span>
+                </uib-tab-heading>
+                <div class="row">
+                    <div class="col-md-6">
+                        <bp-form-group data-field="passengerDetailForm.email"
+                                       data-form="passengerDetailForm"
+                                       data-title="'global.email'"
+                                       custom-validations="{'emailExists':'This Email Address Already Exists'}"
+                                       data-has-validation="true">
+                            <input name="email" type="text" ng-model="vm.passenger.email"
+                                   placeholder="{{::'global.email'|translate}}"
+                                   class="form-control" ng-blur="vm.emailAvailability()">
+                        </bp-form-group>
+                        <bp-form-group data-field="passengerDetailForm.firstName"
+                                       data-form="passengerDetailForm" data-is-required="true"
+                                       data-title="'global.firstName'"
+                                       data-has-validation="true">
+                            <input name="firstName" type="text" ng-model="vm.passenger.name"
+                                   placeholder="{{::'global.firstName'|translate}}"
+                                   class="form-control" ng-required="true">
+                        </bp-form-group>
+                        <bp-form-group data-field="passengerDetailForm.surname"
+                                       data-form="passengerDetailForm" data-is-required="true"
+                                       data-title="'global.surname'"
+                                       data-has-validation="true">
+                            <input name="surname" type="text" ng-model="vm.passenger.family"
+                                   placeholder="{{::'global.surname'|translate}}"
+                                   class="form-control" ng-required="true">
+                        </bp-form-group>
+                    </div>
+                    <div class="col-md-6">
+                        <bp-form-group data-field="passengerDetailForm.birthDate"
+                                       data-form="passengerDetailForm" data-is-required="true"
+                                       data-title="'global.birthDate'"
+                                       data-has-validation="true">
+                            <input name="birthDate" type="text" ng-model="vm.passenger.birthDate"
+                                   vestadp="{{vestadpOptions()}}"
+                                   placeholder="{{'global.birthDate'|translate}}"
+                                   class="form-control white-readonly" ng-required="true"
+                                   ng-readonly="true">
+                        </bp-form-group>
+								<bp-form-group data-field="passengerDetailForm.gender"
+													data-form="passengerDetailForm"
+													data-has-validation="true"
+													data-is-required="true" data-title="'global.gender'"
+													data-has-select="true">
+
+										<ui-select ng-model="vm.passenger.gender" theme="select2" ng-required="true" name="gender" search-enabled="false">
+											<ui-select-match placeholder="{{::'global.gender'|translate}}"  allow-clear="true">
+												<span ng-bind="$select.selected.name"></span>
+											</ui-select-match>
+											<ui-select-choices repeat="item.id as item in vm.personalGender track by item.id">
+												<span ng-bind="item.name"></span>
+											</ui-select-choices>
+										</ui-select>
+								</bp-form-group>
+                        <bp-form-group data-field="passengerDetailForm.country"
+                                       data-form="passengerDetailForm" data-is-required="true" data-has-select="true"
+                                       data-title="'global.country'"
+                                       data-has-validation="true">
+										<ui-select ng-model="vm.passenger.country" theme="select2" ng-required="true" name="country">
+											<ui-select-match placeholder="{{'global.country'|translate}}" allow-clear="true">
+												<span ng-bind="$select.selected.name"></span>
+											</ui-select-match>
+											<ui-select-choices
+												repeat="item.id as item in vm.countries track by item.id">
+												<span ng-bind="item.name"></span>
+											</ui-select-choices>
+										</ui-select>
+                        </bp-form-group>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab index="1">
+                <uib-tab-heading>
+                    <i class="fa fa-address-card"></i> <span>{{'card.groupOrder.passportDetails'|translate}}</span>
+                </uib-tab-heading>
+                <div>
+                    <bp-form-group data-field="passengerDetailForm.passportNumber"
+                                   data-form="passengerDetailForm"
+                                   data-is-required="true" data-title="'global.passportNumber'"
+                                   data-has-validation="true">
+                        <input name="passportNumber" type="text" ng-model="vm.passenger.passportNo"
+                               placeholder="{{'global.passportNumber'|translate}}" ng-required="true"
+                               class="form-control"/>
+                    </bp-form-group>
+
+                    <bp-form-group data-field="passengerDetailForm.passportExDate"
+                                   data-form="passengerDetailForm" data-is-required="true"
+											  custom-validations="{biggerThanTodayValidationMsg:'global.messages.biggerThanTodayValidationMsg'}"
+                                   data-title="'global.passportExDate'"
+                                   data-has-validation="true">
+                        <input name="passportExDate" type="text"
+                               vestadp="{{vestadpOptions()}}" ng-model="vm.passenger.passportExp"
+                               placeholder="{{'global.passportExDate'|translate}}"
+										 bp-compare-to="vm.today"
+										 compare-options="{type:'date', op:'gt', offset: 0, validationMsg: 'biggerThanTodayValidationMsg'}"
+                               class="form-control white-readonly" ng-required="true"
+                               ng-readonly="true">
+                    </bp-form-group>
+
+                    <bp-form-group data-field="passengerDetailForm.scan" data-form="passengerDetailForm"
+                                   data-is-required="true" data-title="'global.passportScan'">
+                        <bp-file-upload ng-model="vm.passenger.passportScan" name="scan"
+												    data-fu-required="true"
+                                        fu-accept-mime="image/*"></bp-file-upload>
+                    </bp-form-group>
+                </div>
+            </uib-tab>
+            <uib-tab index="2">
+                <uib-tab-heading>
+                    <i class="fa fa-address-card"></i> <span>{{'card.groupOrder.visaDetails'|translate}}</span>
+                </uib-tab-heading>
+                <div>
+                    <bp-form-group data-field="passengerDetailForm.visaExpirationDate"
+                                   data-form="passengerDetailForm"
+                                   data-title="'card.order.visaExpirationDate'">
+                        <input name="visaExpirationDate" type="text"
+                               vestadp="{{::vestadpOptions()}}" ng-model="vm.passenger.visaExp"
+                               placeholder="{{::'card.order.visaExpirationDate'|translate}}"
+                               class="form-control white-readonly" ng-readonly="true">
+                    </bp-form-group>
+
+                    <bp-form-group data-field="passengerDetailForm.visaScan" data-form="passengerDetailForm"
+                                   data-title="'card.order.visaScan'">
+                        <bp-file-upload ng-model="vm.passenger.visaScan" name="visaScan"
+                                        fu-accept-mime="image/*"></bp-file-upload>
+                    </bp-form-group>
+                </div>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <div class="modal-footer">
+        <div class="col-xs-6 col-md-3 col-md-offset-6">
+            <button class="btn btn-default btn-block" type="button" ng-click="$dismiss()">
+                {{'global.messages.close'|translate}}
+            </button>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <bp-loading-button is-loading="vm.isLoading" class="btn btn-primary btn-block" type="submit"
+                               disabled="passengerDetailForm.$invalid || vm.emailExist"
+                               title="'global.save'|translate"></bp-loading-button>
+        </div>
+    </div>
+</form>

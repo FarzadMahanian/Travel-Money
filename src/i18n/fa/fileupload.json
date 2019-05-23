@@ -1,0 +1,14 @@
+{
+	"fileupload":{
+		"num": "Number",
+		"selectFile":"Select File",
+		"size": "Size",
+		"thumb":"Thumb",
+		"title":"Title",
+		"description": "Description",
+		"progress": "Progress",
+		"fileName": "File Name",
+		"operations":"Ops",
+		"notSelect": "Not File Selected Yet!"
+	}
+}

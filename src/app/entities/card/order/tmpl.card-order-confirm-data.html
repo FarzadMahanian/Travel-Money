@@ -1,0 +1,64 @@
+	<ng-form name="termsOfConditionForm">
+		<section class="mt-20">
+
+			<div class="col-md-offset-1 col-md-10">
+				<ul class="personal-details-preview mt-40 mb-15">
+					<li class="list-item">
+						<div class="list-title">{{'card.order.arrivalDate'|translate}}</div>
+						<div class="list-text">{{card.arrivalDate|date}}</div>
+					</li>
+
+					<li class="list-item">
+						<div class="list-title">{{'card.order.deliveryPlace'|translate}}</div>
+						<div class="list-text">{{getDeliveryPlaceTitleById(card.deliveryPlaceId).name}}</div>
+					</li>
+
+					<li class="list-item" ng-if="card.visaExpirationDate">
+						<div class="list-title">{{'card.order.visaExpirationDate'|translate}}</div>
+						<div class="list-text">{{card.visaExpirationDate|date}}</div>
+					</li>
+				</ul>
+
+				<legend class="mt-30">
+					<span>{{::'card.order.termsOfCondition'|translate}}</span>
+				</legend>
+				<p class="mb-0">
+					In order to procceed with your application you must confirm that you have read the
+					<a href="https://www.persiatravelmoney.com/en/" target="__blank"><strong> terms and conditions (opens in new window)</strong></a>.
+				</p>
+
+				<bp-form-group data-field="termsOfConditionForm.termsOfConditionAcception"
+									data-form="termsOfConditionForm"
+									data-title="''" data-css-class="'col-md-6 p-0'">
+					<div class="animated-checkbox col-md-12 p-0">
+						<label>
+							<input type="checkbox" name="termsOfConditionAcception" ng-required="true" ng-model="card.termsOfConditionAcception">
+							<span class="label-text">{{'card.order.accept'|translate}}</span>
+						</label>
+					</div>
+				</bp-form-group>
+
+				<p class="mb-0">
+					We would like to contact you by e-mail, mail, SMS or phone to let you know about other products and services that we think may be of interest to you. We do not pass or sell your details to third parties to allow them to market to you.
+				</p>
+				<bp-form-group data-field="termsOfConditionForm.contactAcception"
+									data-form="termsOfConditionForm"
+									data-title="''" data-css-class="'col-md-6 p-0'">
+					<div class="animated-checkbox col-md-12 p-0">
+						<label>
+							<input type="checkbox" name="contactAcception" ng-model="card.contactAcception">
+							<span class="label-text">{{'card.order.contactAcceptionMessage'|translate}}</span>
+						</label>
+					</div>
+				</bp-form-group>
+			</div>
+			<div class="clearfix"></div>
+		</section>
+		<bp-wizard-actions   step-form="termsOfConditionForm"
+							 hide-save-button="true"
+							 next-is-loading="cardOrderSaving"
+							 data-form="newCardOrderForm" data-is-loading="newCardOrderForm.$isLoading"
+							 on-next-step="gotoWizardStep(hasPersonalDetail ? tabIndexSeed+3 : tabIndexSeed+2)"
+							 on-prev-step="gotoWizardStep(hasPersonalDetail ? tabIndexSeed+1 : tabIndexSeed)"/>
+
+	</ng-form>

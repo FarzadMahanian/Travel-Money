@@ -1,0 +1,16 @@
+@font-face {
+	font-family: 'IranSans';
+	src: url('../fonts/IRANSansWeb(FaNum)_Light.eot?v=4.5.0');
+	src: url('../fonts/IRANSansWeb(FaNum)_Light.eot?#iefix&v=4.5.0') format('embedded-opentype'),
+	url('../fonts/IRANSansWeb(FaNum)_Light.woff2?v=4.5.0') format('woff2'),
+	url('../fonts/IRANSansWeb(FaNum)_Light.woff?v=4.5.0') format('woff'),
+	url('../fonts/IRANSansWeb(FaNum)_Light.ttf?v=4.5.0') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, .sidebar, tags-input .tags .input, .sidebar .user-panel > .info > p {
+	font-family: $rtl-font-family-base;
+	/*rtl:remove*/
+	font-family: $ltr-font-family-base;
+}

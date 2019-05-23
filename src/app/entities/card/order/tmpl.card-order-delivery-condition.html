@@ -1,0 +1,89 @@
+<legend class="hidden-md hidden-lg mt-20">
+	<span>{{::'card.order.deliveryCondition'|translate}}</span>
+</legend>
+<ng-form name="deliveryConditionFrom">
+	<section class="mt-20">
+
+		<bp-form-group data-field="deliveryConditionFrom.arrivalDate"
+							data-form="deliveryConditionFrom" data-is-required="true"
+							data-title="'card.order.arrivalDate'" data-css-class="'col-lg-6'"
+							custom-validations="{biggerThanTodayValidationMsg:'global.messages.biggerThanTodayValidationMsg'}"
+							data-has-validation="true">
+			<input name="arrivalDate" type="text" ng-model="card.arrivalDate"
+						vestadp="{{::vestadpOptions()}}"
+						bp-compare-to="vm.today"
+						compare-options="{type:'date', op:'gt', offset: 0, validationMsg: 'biggerThanTodayValidationMsg'}"
+						placeholder="{{::'card.order.arrivalDate'|translate}}"
+						class="form-control white-readonly" ng-required="true"
+						ng-readonly="true">
+		</bp-form-group>
+
+		<bp-form-group data-field="deliveryConditionFrom.city"
+							data-form="deliveryConditionFrom"
+							data-has-validation="true"
+							data-is-required="true" data-title="'card.order.enteranceCity'"
+							data-has-select="true" data-css-class="'col-xs-12 col-sm-6'">
+
+			<ui-select ng-model="card.cityId" theme="select2" ng-required="true" name="city">
+				<ui-select-match placeholder="{{'global.city'|translate}}"	allow-clear="true">
+					<span ng-bind="$select.selected.name"></span>
+				</ui-select-match>
+				<ui-select-choices repeat="item.id as item in (cities) track by item.id">
+					<span ng-bind="item.name"></span>
+				</ui-select-choices>
+			</ui-select>
+		</bp-form-group>
+
+		<bp-form-group data-field="deliveryConditionFrom.deliveryPlace"
+							data-form="deliveryConditionFrom"
+							data-has-validation="true"
+							data-is-required="true" data-title="'card.order.deliveryPlace'"
+							data-has-select="true"
+							data-css-class="'col-xs-12 col-sm-6'">
+
+			<ui-select ng-model="card.deliveryPlaceId" theme="select2" ng-required="true"
+						  ng-disabled="deliveryPlaces.length<1"
+						  name="deliveryPlace" search-enabled="false">
+				<ui-select-match placeholder="{{::'card.order.deliveryPlace'|translate}}" allow-clear="true">
+					<span ng-bind="$select.selected.name"></span>
+				</ui-select-match>
+				<ui-select-choices repeat="item.id as item in deliveryPlaces track by item.id" group-by="'parentName'">
+					<span ng-bind="item.name"></span>
+				</ui-select-choices>
+			</ui-select>
+			<i class="fa fa-spinner fa-pulse fa-fw fa-select2-spinner" ng-if="card.cityId && deliveryPlaces.length<1"></i>
+		</bp-form-group>
+
+		<bp-form-group data-field="deliveryConditionFrom.visaExpirationDate"
+							data-form="deliveryConditionFrom"
+							custom-validations="{biggerThanTodayValidationMsg:'global.messages.biggerThanTodayValidationMsg'}"
+							data-title="'card.order.visaExpirationDate'" data-css-class="'col-lg-6'">
+			<input name="visaExpirationDate" type="text"
+						vestadp="{{::vestadpOptions()}}" ng-model="card.visaExpirationDate"
+						bp-compare-to="vm.today"
+						compare-options="{type:'date', op:'gt', offset: 0, validationMsg: 'biggerThanTodayValidationMsg'}"
+						placeholder="{{::'card.order.visaExpirationDate'|translate}}"
+						class="form-control white-readonly" ng-readonly="true">
+		</bp-form-group>
+
+		<bp-form-group data-field="deliveryConditionFrom.visaScan" data-form="passportInformationFrom"
+							data-css-class="'col-xs-12 col-lg-6'"
+						   data-title="'card.order.visaScan'">
+			<bp-file-upload ng-model="card.visaScan" name="visaScan"	fu-accept-mime="image/*"></bp-file-upload>
+		</bp-form-group>
+
+		<bp-form-group data-field="deliveryConditionFrom.description"
+							data-form="deliveryConditionFrom"
+							data-title="'global.fields.description'" data-css-class="'col-lg-6'">
+			<textarea name="description" type="text" ng-model="card.description"
+						class="form-control"></textarea>
+		</bp-form-group>
+
+	</section>
+	<bp-wizard-actions   step-form="deliveryConditionFrom"
+								hide-save-button="true"
+								data-form="newCardOrderForm" data-is-loading="newCardOrderForm.$isLoading"
+								on-prev-step="gotoWizardStep(hasPersonalDetail ? tabIndexSeed : tabIndexSeed-1)"
+								on-next-step="gotoWizardStep(hasPersonalDetail ? tabIndexSeed+2 : tabIndexSeed+1)"/>
+
+</ng-form>

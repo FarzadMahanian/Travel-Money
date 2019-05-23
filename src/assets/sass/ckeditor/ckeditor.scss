@@ -1,0 +1,11 @@
+/******************************
+*		CKEditor Overrrides     *
+*******************************/
+
+@import '../style/vars';
+@import '../style/font';
+.cke_editable {
+	font-family: $rtl-font-family-base;
+	/*rtl:remove*/
+	font-family: $ltr-font-family-base;
+}

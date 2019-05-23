@@ -1,0 +1,109 @@
+ .nav.nav-tabs {
+	&.affix {
+		top: 50px;
+		width: 100%;
+		z-index: 100;
+		background-color: white;
+		box-shadow: 0 0px 10px rgba(0, 0, 0, .15);
+		transform: translateX(-50px);
+		padding-left: 50px;
+		box-sizing: content-box;
+		@media screen and (max-width: 768px) {
+			top: 100px;
+		}
+	}
+}
+
+.nav-tabs {
+	&>li {
+		&.active {
+			a {
+				color: #555555;
+				border-bottom-width: 3px;
+			}
+		}
+		& a:hover,
+		& a:focus {
+			color: #555555;
+			border-bottom-width: 3px !important;
+		}
+		&.has-validation.tab-error {
+			a {
+				color: $primary-color;
+			}
+		}
+		>a {
+			font-weight: 600;
+			font-size: 1.2em;
+			i {
+				display: block;
+				text-align: center;
+				@include breakpoint(0 $screen-xs) {
+					font-size: 24px;
+				}
+				@include breakpoint($screen-xs) {
+					font-size: 30px;
+				}
+			}
+			span {
+				display: block;
+				padding: 7px 3px 0;
+			}
+		}
+		//&.active {
+		//	.badge {
+		//		background-color: $primary-color;
+		//	}
+		//}
+		//&.disabled {
+		//	color: silver;
+		//	.badge {
+		//		background-color: silver;
+		//	}
+		//}
+	}
+
+}
+
+.nav-tabs-vertical {
+	background-color: #eee;
+	&.nav-tabs-right {
+		.tab-content {
+			float: left;
+			width: 75%;
+			border-right: 1px solid #ccc;
+			background-color: #fff;
+			min-height: 200px;
+			padding:15px 20px;
+		}
+		.nav-tabs {
+			float: right;
+			border:0;
+			width: 25%;
+			padding: 15px 0;
+			min-height: 200px;
+			background-color:  #eee;
+
+			.nav-item {
+				float:none;
+				a {
+					border: 0px;
+					i {
+						font-size: inherit;
+						text-align: inherit;
+						display: inline;
+					}
+					span {
+						display: inline;
+					}
+				}
+				&.active {
+					background-color: white;
+					border: 1px solid #ccc;
+					margin-left: -1px;
+					border-left: 0px;
+				}
+			}
+		}
+	}
+}

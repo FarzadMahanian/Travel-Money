@@ -1,0 +1,30 @@
+{
+	"error":{
+		"title":"Error",
+		"homeBTN": "Back to Home",
+		"messages":{
+			"notAuthorized":"You are not authorized to do this job.",
+			"notAuthenticated": "Your session is expired.",
+			"general": "Unwanted error occurred.",
+			"6001": "Internal errror",
+			"6025": "Cannot delete the entity, it is used by another entity.",
+			"6012": "Username cannot left blank in customer",
+			"6022": "The user already exists in database",
+			"6061": "This file is too big.",
+			"6041": "Entered password is not valid.",
+			"6011": "You don't have a permission. Please try later."
+		},
+		"404": {
+			"title": "ERROR 404",
+			"message": "Page Not Found!"
+		},
+		"403": {
+			"title": "ACCESS DENIED",
+			"message": "You dont have permission to view this resource"
+		},
+		"offline": {
+			"title": "NO CONNECTION",
+			"message": "There is no internet connection."
+		}
+	}
+}

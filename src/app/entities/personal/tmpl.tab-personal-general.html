@@ -1,0 +1,87 @@
+<ng-form name="generalInformationFrom">
+
+    <section class="mt-20">
+        <legend class="hidden-md hidden-lg">
+            <span>{{'form.generalInformation.title'|translate}}</span>
+        </legend>
+
+        <bp-form-group data-field="generalInformationFrom.title"
+                       data-form="generalInformationFrom"
+                       data-has-validation="true"
+                       data-is-required="true" data-title="'global.title'"
+                       data-has-select="true"
+                       data-css-class="'col-xs-12 col-sm-6'">
+
+            <ui-select ng-model="personalDetail.title" theme="select2" ng-required="true" name="title" search-enabled="false">
+                <ui-select-match placeholder="{{::'global.title'|translate}}" allow-clear="true">
+                    <span ng-bind="$select.selected.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item.id as item in personalTitle track by item.id">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
+        </bp-form-group>
+
+        <bp-form-group data-field="generalInformationFrom.firstName"
+                       data-form="generalInformationFrom"
+                       data-css-class="'col-xs-12 col-sm-6'"
+                       data-is-required="true" data-title="'global.firstName'"
+                       data-has-validation="true">
+            <input name="firstName" type="text" ng-model="personalDetail.firstName"
+                   placeholder="{{::'global.firstName'|translate}}"
+                   class="form-control" ng-required="true"/>
+        </bp-form-group>
+
+        <bp-form-group data-field="generalInformationFrom.surname"
+                       data-form="generalInformationFrom" data-css-class="'col-xs-12 col-sm-6'"
+                       data-is-required="true" data-title="'global.surname'"
+                       data-has-validation="true">
+            <input name="surname" type="text" ng-model="personalDetail.surname"
+                   placeholder="{{::'global.surname'|translate}}"
+                   class="form-control" ng-required="true"/>
+        </bp-form-group>
+
+        <bp-form-group data-field="generalInformationFrom.birthDate"
+                       data-form="generalInformationFrom" data-is-required="true"
+                       data-title="'global.birthDay'" data-css-class="'col-xs-12 col-sm-6'"
+                       data-has-validation="true">
+            <input name="birthDate" type="text"
+                   vestadp="{{::vestadpOptions()}}" ng-model="personalDetail.birthDate"
+                   placeholder="{{::'global.birthDay'|translate}}"
+                   class="form-control white-readonly" ng-required="true"
+                   ng-readonly="true">
+        </bp-form-group>
+
+        <bp-form-group data-field="generalInformationFrom.gender"
+                       data-form="generalInformationFrom"
+                       data-has-validation="true"
+                       data-is-required="true" data-title="'global.gender'"
+                       data-has-select="true"
+                       data-css-class="'col-xs-12 col-sm-6'">
+
+            <ui-select ng-model="personalDetail.gender" theme="select2" ng-required="true" name="gender" search-enabled="false">
+                <ui-select-match placeholder="{{::'global.gender'|translate}}"  allow-clear="true">
+                    <span ng-bind="$select.selected.name"></span>
+                </ui-select-match>
+                <ui-select-choices repeat="item.id as item in personalGender track by item.id">
+                    <span ng-bind="item.name"></span>
+                </ui-select-choices>
+            </ui-select>
+        </bp-form-group>
+
+        <bp-form-group data-field="generalInformationFrom.msisdn"
+                       data-form="generalInformationFrom"
+                       data-css-class="'col-xs-12 col-sm-6'" data-is-required="true"
+                       data-title="'global.mobile'" data-has-validation="true">
+            <input name="msisdn" type="text"
+                   placeholder="{{::'global.mobile'|translate}}"
+                   class="form-control" ng-required="true"
+                   ng-model="personalDetail.msisdn"/>
+        </bp-form-group>
+
+    </section>
+    <bp-wizard-actions disable-prev="true" disable-next="false" step-form="generalInformationFrom"
+                       hide-save-button="true"
+                       data-form="newPersonalDetailForm" data-is-loading="newPersonalDetailForm.$isLoading"
+                       on-next-step="gotoWizardStep(1)"/>
+</ng-form>

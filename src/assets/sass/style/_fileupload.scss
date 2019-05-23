@@ -1,0 +1,67 @@
+/****************************
+*	File Upload
+*****************************/
+
+.has-error {
+	.fileupload-container,.drop-box {
+		border-color: $state-danger-text ;
+	}
+}
+
+.drop-box {
+	border: 3px dashed $input-border;
+	border-radius: $input-border-radius;
+	background-color: $input-bg;
+	padding: 7px;
+	width: 100%;
+	text-align: center;
+	&.dragover {
+		border-color: darken($input-border, 20%);
+	}
+}
+
+.fileupload-container {
+	border: solid 2px $input-border;
+	border-radius: $input-border-radius;
+	background-color: $input-bg;
+	position: relative;
+
+	&:focus{
+		border-color: $primary-color;
+	}
+
+	.file-row {
+		.file-box {
+			border-bottom: 1px dashed $input-border;
+			overflow: hidden;
+			margin: 5px 0;
+			padding: 5px 0;
+			padding-top: 15px;
+		}
+		&:last-child .file-box {
+			border: none;
+		}
+		.file-size {
+			text-align: left;
+			/*rtl:ignore*/
+			direction: ltr;
+		}
+	}
+	.file-select {
+		padding: 30px;
+		text-align: center;
+		color: darken($body-bg, 10%);
+	}
+	.file-btn {
+		div {
+			border-top: 1px dashed $input-border;
+		}
+	}
+	.table-view {
+		.title, .text {
+			p {
+				padding: 0 10px;
+			}
+		}
+	}
+}

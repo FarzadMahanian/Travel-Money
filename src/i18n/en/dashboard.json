@@ -1,0 +1,13 @@
+{
+    "dashboard":{
+        "title":"Dashboard",
+        "description":"Start your jurney from here",
+		 "message": {
+			 "admin": "You can manage all system's users, agencies, packages, reservations and services from the side menu.",
+			 "agency": "You can manage all your agencies, packages, reservations and services from the side menu.",
+			 "user": "You can manage all your reservations from the side menu.",
+			 "first": "You can manage:",
+			 "last": ""
+		 }
+    }
+}

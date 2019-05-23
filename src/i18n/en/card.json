@@ -1,0 +1,100 @@
+{
+	"card": {
+		"noCard": "No cards!",
+		"order":{
+			"deliveryCondition":"Delivery Condition",
+			"termsOfCondition": "Terms Of Condition",
+			"confirmData": "Confirm Data",
+			"accept": "I accept terms and conditions",
+			"contactAcceptionMessage": "Tick the box if you do not want us to contact you",
+			"deliveryPlace": "Delivery Place",
+			"customerInfo": "Customer Info",
+			"paymentInfo": "Payment Info",
+			"arrivalDate": "Arrival Date",
+			"departureDate": "Departure Date",
+			"arrivalDateFrom":"Arrival Date (From)",
+			"arrivalDateTo":"Arrival Date (To)",
+			"dateFrom": "Date (From)",
+			"dateTo": "Date (To)",
+			"visaExpirationDate": "Visa Expiration",
+			"visaScan": "Visa Scan",
+			"payment": "Payment",
+			"finish": "Finish",
+			"enteranceCity": "Enterance City",
+			"detail": "Order Detail",
+			"orderDate": "Order Date",
+			"repay": "RePay",
+			"status": {
+				"UNPAID": "UNPAID",
+				"PAID": "PAID",
+				"REJECTED": "REJECTED",
+				"ISSUED": "CARD ISSUED",
+				"PROCESSING": "PROCESSING"
+			}
+		},
+		"groupOrder": {
+			"list": {
+				"title": "Group Card Order",
+				"description": "Group card order's list"
+			},
+			"title": "Group Card Order",
+			"descAdd": "Create group card order",
+			"descEdit": "Edit group card order",
+			"code": "Order Code",
+			"orderTitle": "Order Title",
+			"passengersCount": "Passenger's Count",
+			"passengers": "Passengers",
+			"create": "Order card for a new group",
+			"passengerListTitle": "Passenger's List",
+			"orderInfo": "Order Info",
+			"passengerInfo": "Passenger Info",
+			"confirmData": "Confirm Data",
+			"finish": "Finish",
+			"insertPassengerDetail": "Insert new passenger information",
+			"updatePassengerDetail": "Update existing passenger information",
+			"passportDetails": "Passport Details",
+			"personalDetails": "Personal Details",
+			"visaDetails": "Visa Details"
+		},
+		"bank":{
+			"title" : "Card Issue Panel",
+			"description": "View all card orders, and issue or reject then",
+			"issue": "Issue Card",
+			"issuedSuccessfully": "Issued successfully.",
+			"pan": "Card Number",
+			"expirationDate": "Exp. Date",
+			"expirationDateYear": "Exp. Year",
+			"expirationDateMonth": "Exp. Month",
+			"cvv": "cvv2",
+			"reject": "Reject Order",
+			"rejectReason": "Reject Reason"
+		},
+		"load":{
+			"locadCardSuccess": "Your card was charged successfully.",
+			"dest" : "Card Pan",
+			"sourceAmount": "Amount",
+			"destAmount": "Exchanged Amount",
+			"amountFrom": "Amount (From)",
+			"amountTo": "Amount (To)",
+			"date": "Date and Time",
+			"sourceStatus": "Source Status",
+			"destStatus": "Dest Status",
+			"description": "See your card load history here"
+		},
+		"transaction":{
+			"description": "Get your card's last transactions and balance",
+			"criteria": "Criteria",
+			"toDateValidationMsg": "Must be in on month from start date."
+		},
+		"delivery" :{
+			"title": "Card Delivery Panel",
+			"deliverCard": "Deliver Card",
+			"description" : "Deliver issued cards from here",
+			"issueDate" :  "Issue Date",
+			"comment": "Comment",
+			"returnCard": "Return Card",
+			"deliver": "Deliver",
+			"return": "Return"
+		}
+	}
+}

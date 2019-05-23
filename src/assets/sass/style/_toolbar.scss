@@ -1,0 +1,58 @@
+
+.toolbar {
+	background-color: lighten($body-bg, 7%);
+	padding: 3px;
+	@include border-radius(5px 5px 0 0);
+	border: 1px solid $panel-default-border;
+	border-bottom: 0;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		li {
+			display: inline-block;
+			a {
+				text-align: center;
+				display: inline-block;
+				color: $primary-color;
+				width: 30px;
+				height: 30px;
+				margin: 7px;
+				padding: 5px;
+				@include border-radius(10px);
+				@include transition(all 0.2s linear 0s);
+
+				&:hover {
+					color: #ffffff;
+					background-color: $primary-color;
+				}
+
+				&[disabled] {
+					cursor: not-allowed;
+					color: darken($body-bg, 13%);
+					border-color: darken($body-bg, 13%);
+					&:hover {
+						background-color: transparent;
+					}
+				}
+				i {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+	.tooltip {
+		.tooltip-inner {
+			font-family: $rtl-font-family-base;
+			/*rtl:remove*/
+			font-family: $ltr-font-family-base;
+			padding: 4px 17px;
+			font-size: 14px;
+		}
+	}
+}
+.toolbar-separate {
+	margin-bottom: 30px;
+	border: 1px solid $panel-default-border;
+	@include border-radius(5px);
+}

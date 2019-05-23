@@ -1,0 +1,35 @@
+<bp-page-title title="'card.loadList.title'"
+					icon-class="fa fa-history"
+               description="'card.load.description'"
+			   	pages="[{title:'card.loadList.title', sref:'.'}]"></bp-page-title>
+
+
+<div class="card mb-0" bp-auto-height="">
+	<div class="card-body">
+
+		<bp-filter-form fields-metadata="filterFieldMetadata" filter="filter" on-search="searchFilter(filter)"></bp-filter-form>
+
+		<bp-overlay ng-show="tableParams.settings().$loading"></bp-overlay>
+		<table ng-table="tableParams" class="table table-bordered table-striped table-hover table-border-around text-center"
+				template-pagination="app/base/ng-table-pagination.html">
+			<tr ng-repeat="row in $data">
+				<td data-title="'grid.rowNum'|translate" class="text-center">{{$index+1}}</td>
+				<td data-title="'card.load.dest'|translate" sortable="'dest'">{{row.dest|separate}}</td>
+				<td data-title="'card.load.sourceAmount'|translate" sortable="'sourceAmount'">{{row.sourceAmount|bpCurrency:row.sourceCurrency}}</td>
+				<td data-title="'card.load.destAmount'|translate" sortable="'destAmount'">{{row.destAmount|bpCurrency:row.destCurrency}}</td>
+				<td data-title="'card.load.date'|translate" sortable="'creationDate'">{{row.creationDate|date:"yyyy-MM-dd h:mm a"}}</td>
+				<td data-title="'card.load.sourceStatus'|translate" sortable="'sourceStatus'">
+					<span class="label cell-label" ng-class="{'label-success': row.sourceStatus==constants.enums.paymentStatus.SUCCESS, 'label-danger': row.sourceStatus!=constants.enums.paymentStatus.SUCCESS}">
+						{{row.sourceStatus}}
+					</span>
+				</td>
+				<td data-title="'card.load.destStatus'|translate" sortable="'destStatus'">
+					<span class="label cell-label" ng-class="{'label-success': row.destStatus==constants.enums.paymentStatus.SUCCESS, 'label-danger': row.destStatus!=constants.enums.paymentStatus.SUCCESS}">
+						{{row.destStatus}}
+					</span>
+				</td>
+			</tr>
+		</table>
+		<div class="clearfix">&nbsp;</div>
+	</div>
+</div>

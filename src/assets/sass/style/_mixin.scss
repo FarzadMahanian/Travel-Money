@@ -1,0 +1,7 @@
+@mixin border($width:2px, $type:solid, $color:$input-border) {
+	border: $width $type $color;
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+}

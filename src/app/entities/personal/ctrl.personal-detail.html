@@ -1,0 +1,31 @@
+<bp-page-title title="'personal.detail.title'"
+					icon-class="fa fa-user"
+					description="isEdit ? 'personal.detail.edit' : 'personal.detail.add'"
+					pages="[{title:'personal.detail.title', sref:'.'}]"></bp-page-title>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-body">
+				<form class="form-horizontal" name="newPersonalDetailForm" data-ng-submit="saveForm()" novalidate>
+					<bp-wizard-tabs active-tab-index="activeTabIndex" items="wizardItems"></bp-wizard-tabs>
+					<div>
+						<section class="tab-page bp-animate" ng-show="activeTabIndex==0">
+							<div ng-include="'app/entities/personal/tmpl.tab-personal-general.html'"></div>
+						</section>
+						<section class="tab-page bp-animate" ng-show="activeTabIndex==1">
+							<div ng-include="'app/entities/personal/tmpl.tab-personal-passport.html'"></div>
+						</section>
+						<section class="tab-page bp-animate" ng-show="activeTabIndex==2">
+							<div ng-include="'app/entities/personal/tmpl.tab-personal-address.html'"></div>
+						</section>
+						<section class="tab-page bp-animate" ng-show="activeTabIndex==3">
+							<div ng-include="'app/entities/personal/tmpl.tab-personal-sequrity-question.html'"></div>
+						</section>
+					</div>
+				</form>
+				<!--<div bp-form-draft="personalDetail" draft-form-name="PersonalDetail"></div>-->
+			</div>
+		</div>
+	</div>
+</div>
